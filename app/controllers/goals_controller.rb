@@ -1,10 +1,16 @@
 class GoalsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:index, :show]
   before_action :set_goal, only: [:show, :edit, :update, :destroy]
 
   # GET /goals
   # GET /goals.json
   def index
-    @goals = Goal.all
+     if user_signed_in?
+       @goals = current_user.goals
+      render :index
+    else 
+      render :index_2
+    end
   end
 
   # GET /goals/1
@@ -15,6 +21,7 @@ class GoalsController < ApplicationController
   # GET /goals/new
   def new
     @goal = Goal.new
+    @user = current_user
   end
 
   # GET /goals/1/edit
@@ -24,7 +31,7 @@ class GoalsController < ApplicationController
   # POST /goals
   # POST /goals.json
   def create
-    @goal = Goal.new(goal_params)
+    @goal = current_user.goals.new(goal_params)
 
     respond_to do |format|
       if @goal.save
@@ -39,13 +46,16 @@ class GoalsController < ApplicationController
 
   # PATCH/PUT /goals/1
   # PATCH/PUT /goals/1.json
-  def update
+ def update
     respond_to do |format|
-      if @goal.update(goal_params)
+      if @goal.user != current_user
+        format.html { redirect_to @goal, notice: 'That goal is not yours to edit.' }
+        format.json { render json: @goal.errors, status: :unprocessable_entity }
+      elsif @goal.update(post_params)
         format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
-        format.json { render :show, status: :ok, location: @goal }
+        format.json { head :no_content }
       else
-        format.html { render :edit }
+        format.html { render action: "edit" } 
         format.json { render json: @goal.errors, status: :unprocessable_entity }
       end
     end
@@ -54,11 +64,20 @@ class GoalsController < ApplicationController
   # DELETE /goals/1
   # DELETE /goals/1.json
   def destroy
+    if @goal.user != current_user
+     flash[:notice] = 'That goal is not yours to destroy.'
+
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.json { head :no_content }
+      end
+    else
     @goal.destroy
-    respond_to do |format|
-      format.html { redirect_to goals_url, notice: 'Goal was successfully destroyed.' }
+     respond_to do |format|
+      format.html { redirect_to goals_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
-    end
+     end
+     end
   end
 
   private
@@ -69,6 +88,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:description, :done, :user_id)
+      params.require(:goal).permit(:description, :done, :current_user, :user_id)
     end
 end
