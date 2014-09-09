@@ -2,18 +2,49 @@
 <html>
 <head>
   <title>Kunstant2</title>
+  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap.css">
+  <link rel="stylesheet" href="//railsgirls.com/assets/bootstrap-theme.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
- <div id="flash" >
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
- </div>
- 
- <div id="content" >
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Kunstant</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/goals">Goals</a></li>
+      </ul>
+      <p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+    </div>
+  </div>
+</nav>
+
+ <div class="container" >
+ 	<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
   <%= yield %>
  </div>
 
@@ -21,9 +52,7 @@
   <div id="login">
  	<%if user_signed_in? -%>
  	<ul>
- 		<li>Hello <%= current_user.email %>!</li>
  		<li><%= link_to 'Add goal', new_goal_path %></li>
- 		<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
  	</ul>
  	<% else -%>
  	<ul>
@@ -33,5 +62,12 @@
  	<% end -%>
  </div>
 
+
+<footer>
+  <div class="container">
+    Jonathan & Jose 2014
+  </div>
+</footer>
+<script src="//railsgirls.com/assets/bootstrap.js"></script>
 </body>
 </html>
