@@ -7,12 +7,16 @@ $(document).ready(function() {
 
     $('#calendar').fullCalendar({
         // put your options and callbacks here
+        editable: true,
+        weekMode: 'liquid',
+        defaultView: 'basicWeek',
+        height: 350,
          header: 
          {
          	left:   'title',
-         	center: 'basicWeek',
          	right:  'today prev,next'
          }
+
     })
 
 });
