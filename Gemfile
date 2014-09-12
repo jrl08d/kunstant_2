@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'fullcalendar-rails'
 
+gem 'jquery-ui-rails'
+

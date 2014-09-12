@@ -1,6 +1,19 @@
-<h1>Listing goals</h1>
+<h1>Goal Calendar</h1>
 
-<div id='calendar'></div>
+
+<div id="goals">
+  <%= calendar do |date| %>
+    <%= date.day %>
+    <% if @goals_by_date[date] %>
+      <ul>
+        <% @goals_by_date[date].each do |goal| %>
+        <li><%= link_to goal.description, goal %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+</div>
+
 
 <table>
   <thead>

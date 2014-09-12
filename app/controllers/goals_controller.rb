@@ -7,6 +7,8 @@ class GoalsController < ApplicationController
   def index
      if user_signed_in?
        @goals = current_user.goals
+       @goals_by_date = @goals.group_by(&:assigned_date)
+       @date = params[:date] ? Date.parse(params[:date]) : Date.today
       render :index
     else 
       render :index_2
@@ -51,7 +53,7 @@ class GoalsController < ApplicationController
       if @goal.user != current_user
         format.html { redirect_to @goal, notice: 'That goal is not yours to edit.' }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
-      elsif @goal.update(post_params)
+      elsif @goal.update(goal_params)
         format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
         format.json { head :no_content }
       else
@@ -88,6 +90,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:description, :done, :current_user, :user_id)
+      params.require(:goal).permit(:description, :done, :current_user, :user_id, :assigned_date)
     end
 end
