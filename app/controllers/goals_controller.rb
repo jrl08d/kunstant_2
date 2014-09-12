@@ -7,8 +7,8 @@ class GoalsController < ApplicationController
   def index
      if user_signed_in?
        @goals = current_user.goals
-       @goals_by_date = @goals.group_by(&:assigned_date)
-       @date = params[:date] ? Date.parse(params[:date]) : Date.today
+        @goals_by_date = @goals.group_by(&:assigned_date)
+        @date = params[:date] ? Date.parse(params[:date]) : Date.today
       render :index
     else 
       render :index_2

@@ -2,40 +2,19 @@
 
 
 <div id="goals">
-  <%= calendar do |date| %>
+<h2 id="month">
+  <%= link_to "<", date: @date.prev_month %>
+  <%= @date.strftime("%B %Y") %>   
+  <%= link_to ">", date: @date.next_month %>
+</h2>
+  <%= calendar @date do |date| %>
     <%= date.day %>
     <% if @goals_by_date[date] %>
-      <ul>
-        <% @goals_by_date[date].each do |goal| %>
+    <ul>
+      <% @goals_by_date[date].each do |goal| %>
         <li><%= link_to goal.description, goal %></li>
-        <% end %>
-      </ul>
+      <% end %>
+    </ul>
     <% end %>
   <% end %>
 </div>
-
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th>Done</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @goals.each do |goal| %>
-      <tr>
-        <td><%= goal.description %></td>
-        <td><%= goal.done %></td>
-        <td><%= link_to 'Show', goal %></td>
-        <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-        <td><%= link_to 'Destroy', goal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-
-<br>
