@@ -12,15 +12,15 @@
   <% end %>
 
   <div class="field">
+<%= simple_form_for @goal do |f| %>
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description %><br>
+  <%= f.label :done %><br>
+    <%= f.check_box :done %><br>
+  <%= f.association :category %><br>
+  <%= f.button :submit %><br>
+<% end %>
   </div>
-  <div class="field">
-    <%= f.label :done %><br>
-    <%= f.check_box :done %>
-  </div>  
-  <%= f.date_select :assigned_date %>
-  <div class="actions">
-    <%= f.submit %>
+    <%= link_to 'Destroy', @goal, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>

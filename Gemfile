@@ -42,4 +42,5 @@ gem 'devise'
 gem 'fullcalendar-rails'
 
 gem 'jquery-ui-rails'
+gem 'simple_form'
 

@@ -86,10 +86,13 @@ class GoalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_goal
       @goal = Goal.find(params[:id])
+      if @goal.category_id = 1
+        @goal.assigned_date = Date.today
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:description, :done, :current_user, :user_id, :assigned_date)
+      params.require(:goal).permit(:description, :done, :current_user, :user_id, :assigned_date, :due_date, :category_id, :category)
     end
 end

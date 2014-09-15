@@ -32,13 +32,13 @@
   background-color: #D7F2FF;
 }
 
-#goals #month {
+#goals #week {
   margin: 0;
   padding-bottom: 10px;
   text-align: center;
   font-size: 22px;
 }
-#goals #month a {
+#goals #week a {
   text-decoration: none;
   padding: 0 10px;
   color: #999;
