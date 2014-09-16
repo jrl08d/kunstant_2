@@ -43,4 +43,5 @@ gem 'fullcalendar-rails'
 
 gem 'jquery-ui-rails'
 gem 'simple_form'
-
+gem 'ice_cube', '~> 0.11'
+gem 'recurring_select'

@@ -11,14 +11,16 @@
  * file per style scope.
  *
 
+ *= require recurring_select
  *= require jquery.ui.datepicker
  *= require_tree .
  *= require_self
  */
 
 
-body { padding-top: 100px; }
+body { padding-top: 100px; background-color:#ccc; }
 footer { margin-top: 100px; }
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
+form { margin:100px; padding:50px; border:1px solid #ccc; background-color:#fff;}
 

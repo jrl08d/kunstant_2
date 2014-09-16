@@ -18,9 +18,12 @@
   <%= f.label :done %><br>
     <%= f.check_box :done %><br>
   <%= f.association :category %><br>
+    <%= f.label :recurring_rules, "Set recurrance" %><br/>
+    <%= f.select_recurring :recurring_rules %><br><br>
   <%= f.button :submit %><br>
 <% end %>
   </div>
     <%= link_to 'Destroy', @goal, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
+
 <% end %>

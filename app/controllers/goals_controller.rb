@@ -15,6 +15,8 @@ class GoalsController < ApplicationController
     end
   end
 
+
+
   # GET /goals/1
   # GET /goals/1.json
   def show
@@ -24,6 +26,16 @@ class GoalsController < ApplicationController
   def new
     @goal = Goal.new
     @user = current_user
+    def current_existing_rule
+    IceCube::Rule.monthly.day_of_month(-1).to_hash
+  end
+
+  def current_custom_rule
+    IceCube::Rule.daily(2).to_hash
+  end
+
+  def non_recurring_rule; 1; end
+  def persisted?; false; end
   end
 
   # GET /goals/1/edit
@@ -34,6 +46,9 @@ class GoalsController < ApplicationController
   # POST /goals.json
   def create
     @goal = current_user.goals.new(goal_params)
+      if @goal.category_id = 1
+        @goal.assigned_date = Date.today
+      end
 
     respond_to do |format|
       if @goal.save
@@ -86,9 +101,6 @@ class GoalsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_goal
       @goal = Goal.find(params[:id])
-      if @goal.category_id = 1
-        @goal.assigned_date = Date.today
-      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
