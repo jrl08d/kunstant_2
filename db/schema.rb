@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915215412) do
+ActiveRecord::Schema.define(version: 20140917175319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140915215412) do
     t.date     "due_date"
     t.integer  "type"
     t.integer  "category_id"
+    t.text     "recurring_rules"
   end
 
   add_index "goals", ["user_id"], name: "index_goals_on_user_id", using: :btree

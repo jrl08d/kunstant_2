@@ -18,7 +18,9 @@
   <%= f.label :done %><br>
     <%= f.check_box :done %><br>
   <%= f.association :category %><br>
-    <%= f.label :recurring_rules, "Set recurrance" %><br/>
+  <%= f.label :due_date, "Set Due Date (For Goal Due By)" %><br>
+  <%= f.date_select :due_date %><br>
+    <%= f.label :recurring_rules, "Set Recurrance (For Habit)" %><br>
     <%= f.select_recurring :recurring_rules %><br><br>
   <%= f.button :submit %><br>
 <% end %>

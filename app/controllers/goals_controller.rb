@@ -5,15 +5,26 @@ class GoalsController < ApplicationController
   # GET /goals
   # GET /goals.json
   def index
-     if user_signed_in?
-       @goals = current_user.goals
-        @goals_by_date = @goals.group_by(&:assigned_date)
-        @date = params[:date] ? Date.parse(params[:date]) : Date.today
-      render :index
-    else 
-      render :index_2
-    end
-  end
+    if user_signed_in?
+      @goals = current_user.goals
+      new_goals = []
+
+      @goals.each do |goal|
+        goal.occurrences(1.week.from_now).each do |goal_occur|
+          new_goal = Goal.new
+          new_goal.description = goal.description
+          new_goal.assigned_date = goal_occur
+          new_goals << new_goal
+        end
+     end
+
+     @goals_by_date = new_goals.group_by(&:assigned_date)
+     @date = params[:date] ? Date.parse(params[:date]) : Date.today
+     render :index
+   else 
+     render :index_2
+   end
+end
 
 
 
@@ -26,16 +37,6 @@ class GoalsController < ApplicationController
   def new
     @goal = Goal.new
     @user = current_user
-    def current_existing_rule
-    IceCube::Rule.monthly.day_of_month(-1).to_hash
-  end
-
-  def current_custom_rule
-    IceCube::Rule.daily(2).to_hash
-  end
-
-  def non_recurring_rule; 1; end
-  def persisted?; false; end
   end
 
   # GET /goals/1/edit
@@ -48,6 +49,7 @@ class GoalsController < ApplicationController
     @goal = current_user.goals.new(goal_params)
       if @goal.category_id = 1
         @goal.assigned_date = Date.today
+      elsif @goal
       end
 
     respond_to do |format|
@@ -69,6 +71,8 @@ class GoalsController < ApplicationController
         format.html { redirect_to @goal, notice: 'That goal is not yours to edit.' }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
       elsif @goal.update(goal_params)
+        p goal_params
+        p @goal
         format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
         format.json { head :no_content }
       else
@@ -105,6 +109,6 @@ class GoalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def goal_params
-      params.require(:goal).permit(:description, :done, :current_user, :user_id, :assigned_date, :due_date, :category_id, :category)
+      params.require(:goal).permit(:description, :done, :current_user, :user_id, :assigned_date, :due_date, :category_id, :category, :schedule, :recurring_rules)
     end
 end
