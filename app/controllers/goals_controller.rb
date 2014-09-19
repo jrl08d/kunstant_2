@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
         goal.occurrences(1.week.from_now).each do |goal_occur|
           new_goal = Goal.new
           new_goal.description = goal.description
+          new_goal.id = goal.id
           new_goal.assigned_date = goal_occur
           new_goals << new_goal
         end
@@ -49,7 +50,6 @@ end
     @goal = current_user.goals.new(goal_params)
       if @goal.category_id = 1
         @goal.assigned_date = Date.today
-      elsif @goal
       end
 
     respond_to do |format|
@@ -102,6 +102,7 @@ end
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_goal
       @goal = Goal.find(params[:id])
