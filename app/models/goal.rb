@@ -1,6 +1,5 @@
 class Goal < ActiveRecord::Base
   include IceCube
-  include Occurrences
   belongs_to :user
   belongs_to :category
 

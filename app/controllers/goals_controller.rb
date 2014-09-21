@@ -10,7 +10,7 @@ class GoalsController < ApplicationController
       new_goals = []
 
       @goals.each do |goal|
-        goal.occurrences(1.week.from_now).each do |goal_occur|
+        goal.occurrences(goal.due_date).each do |goal_occur|
           new_goal = Goal.new
           new_goal.description = goal.description
           new_goal.id = goal.id
@@ -48,9 +48,14 @@ end
   # POST /goals.json
   def create
     @goal = current_user.goals.new(goal_params)
-      if @goal.category_id = 1
-        @goal.assigned_date = Date.today
-      end
+    if @goal.category_id == 1
+      @goal.recurring_rules = "{\"interval\":1,\"until\":null,\"count\":null,\"validations\":null,\"rule_type\":\"IceCube::DailyRule\"}"
+    elsif @goal.category_id == 2
+      @goal.recurring_rules = nil
+      @goal.assigned_date = @goal.due_date
+
+    end
+
 
     respond_to do |format|
       if @goal.save
@@ -71,8 +76,6 @@ end
         format.html { redirect_to @goal, notice: 'That goal is not yours to edit.' }
         format.json { render json: @goal.errors, status: :unprocessable_entity }
       elsif @goal.update(goal_params)
-        p goal_params
-        p @goal
         format.html { redirect_to @goal, notice: 'Goal was successfully updated.' }
         format.json { head :no_content }
       else
