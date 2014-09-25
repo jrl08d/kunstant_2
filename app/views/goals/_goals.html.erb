@@ -1,0 +1,8 @@
+
+ <% if @goals_by_date[date] %>
+    <ul>
+      <% @goals_by_date[date].each do |goal| %>
+        <li><%= link_to @goal.description, goal_path(goal) %></li>
+      <% end %>
+    </ul>
+    <% end %>

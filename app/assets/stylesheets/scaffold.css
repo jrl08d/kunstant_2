@@ -1,10 +1,17 @@
-body { background-color: #fff; color: #333; }
+body { background-color: #fff; 
+  color: #333; 
+  background-image: image-url('Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
 }
+
+
 
 pre {
   background-color: #eee;

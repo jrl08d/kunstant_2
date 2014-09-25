@@ -51,9 +51,6 @@
 
   <div id="login">
  	<%if user_signed_in? -%>
- 	<ul>
- 		<li><%= link_to 'Add goal', new_goal_path %></li>
- 	</ul>
  	<% else -%>
  	<ul>
  		<li><%= link_to 'Sign up', new_user_registration_path %></li>

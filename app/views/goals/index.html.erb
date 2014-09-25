@@ -1,4 +1,5 @@
-<h1>Goals Calendar</h1>
+<h1>Tasks & Goals</h1>
+<%= link_to 'Add goal', new_goal_path %>
 
 <div id="goals">
 <h2 id="week">
@@ -13,7 +14,13 @@
     <% if @goals_by_date[date] %>
     <ul>
       <% @goals_by_date[date].each do |goal| %>
-        <li><%= link_to goal.description, goal_path(goal) %></li>
+        <%= content_tag :div, class: "content" do-%>
+          <li>
+            <%= check_box_tag :done %>
+            <%= goal.description %>
+            <%= link_to '(x)', goal_path(goal.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </li>
+        <% end %>
       <% end %>
     </ul>
     <% end %>

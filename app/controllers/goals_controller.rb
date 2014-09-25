@@ -50,6 +50,7 @@ end
     @goal = current_user.goals.new(goal_params)
     if @goal.category_id == 1
       @goal.recurring_rules = "{\"interval\":1,\"until\":null,\"count\":null,\"validations\":null,\"rule_type\":\"IceCube::DailyRule\"}"
+      @goal.due_date = Date.tomorrow
     elsif @goal.category_id == 2
       @goal.recurring_rules = nil
       @goal.assigned_date = @goal.due_date

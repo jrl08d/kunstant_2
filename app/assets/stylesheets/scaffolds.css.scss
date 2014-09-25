@@ -6,10 +6,21 @@ body {
   line-height: 18px;
 }
 
+del {text-decoration: line-through; color:#f00}
+
+div.content.checked {
+  text-decoration:line-through;
+}
+
+
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+ul {
+  list-style-type: none;
 }
 
 pre {
