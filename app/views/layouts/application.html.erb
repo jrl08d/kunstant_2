@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="background">
 
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -25,6 +25,7 @@
         <li class="active"><a href="/goals">Dashboard</a></li>
       </ul>
       <p class="navbar-text pull-right">
+        
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
   Logged in at <strong><%= current_user.current_sign_in_at %></strong>
@@ -38,6 +39,7 @@
   </div>
 </nav>
 
+
  <div class="container" >
  	<% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -45,6 +47,7 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
+
   <%= yield %>
  </div>
 
@@ -65,5 +68,6 @@
     Jonathan & Jose 2014
   </div>
 </footer>
+</div>
 </body>
 </html>

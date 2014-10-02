@@ -1,11 +1,55 @@
-<h1>Tasks & Goals</h1>
-<%= link_to 'Add goal', new_goal_path %>
+<h1>Goals & Tasks</h1>
+<!-- Button trigger modal -->
+<a href = "#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" >
+  New
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">New Task/Goal</h4>
+      </div>
+      <div class="modal-body">
+        <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Daily Task</a></li>
+        <li><a href="#tab2" data-toggle="tab">Goal Due By</a></li>
+        <li><a href="#tab3" data-toggle="tab">Habit</a></li>
+        </ul>
+        <div class="tab-content">
+        <div class="tab-pane active" id="tab1">
+         <% @goal = Goal.new %>
+        <%= render 'goals/dtform' %>
+     
+         </div>
+        <div class="tab-pane" id="tab2">
+         <% @goal = Goal.new %>
+         <% @goal.category_id = 2 %>
+        <%= render 'goals/dlform' %>
+        </div>
+            <div class="tab-pane" id="tab3">
+         <% @goal = Goal.new %>
+         <% @goal.category_id = 3 %>
+        <%= render 'goals/habitform' %>
+        </div>
+        </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="goals">
 <h2 id="week">
   <%= link_to "<", date: @date.prev_week %>
   <%= @date.strftime("%B")%>
-  <%= @date.beginning_of_week(:sunday).strftime("%d") %> - <%= @date.end_of_week(:sunday).strftime("%d") %>
   <%= @date.strftime("%Y") %>
   <%= link_to ">", date: @date.next_week %>
 </h2>
@@ -24,5 +68,6 @@
       <% end %>
     </ul>
     <% end %>
+
   <% end %>
 </div>

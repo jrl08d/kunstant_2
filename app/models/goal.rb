@@ -12,4 +12,5 @@ class Goal < ActiveRecord::Base
         [assigned_date]
       end
     end
+     def non_recurring_rule; 1; end
 end

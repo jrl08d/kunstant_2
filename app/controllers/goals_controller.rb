@@ -38,7 +38,13 @@ end
   def new
     @goal = Goal.new
     @user = current_user
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
+
 
   # GET /goals/1/edit
   def edit
@@ -48,19 +54,25 @@ end
   # POST /goals.json
   def create
     @goal = current_user.goals.new(goal_params)
-    if @goal.category_id == 1
+    if @goal.category_id == 1 
       @goal.recurring_rules = "{\"interval\":1,\"until\":null,\"count\":null,\"validations\":null,\"rule_type\":\"IceCube::DailyRule\"}"
-      @goal.due_date = Date.tomorrow
+      @goal.due_date = Date.tomorrow - 1.day
     elsif @goal.category_id == 2
       @goal.recurring_rules = nil
       @goal.assigned_date = @goal.due_date
+    elsif @goal.category_id == nil
+      @goal.recurring_rules = "{\"interval\":1,\"until\":null,\"count\":null,\"validations\":null,\"rule_type\":\"IceCube::DailyRule\"}"
+      @goal.due_date = Date.tomorrow 
+
+
+
 
     end
 
 
     respond_to do |format|
       if @goal.save
-        format.html { redirect_to @goal, notice: 'Goal was successfully created.' }
+        format.html { redirect_to action: "index" }
         format.json { render :show, status: :created, location: @goal }
       else
         format.html { render :new }
@@ -99,7 +111,7 @@ end
     else
     @goal.destroy
      respond_to do |format|
-      format.html { redirect_to goals_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to goals_url, notice: 'Goal was successfully destroyed.' }
       format.json { head :no_content }
      end
      end

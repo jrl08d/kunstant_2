@@ -47,3 +47,9 @@ gem 'ice_cube', '~> 0.11'
 gem 'recurring_select'
 gem 'formtastic', '~> 3.0'
 gem 'jquery-cookie-rails'
+gem "cocoon"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem "less-rails"
+gem "therubyracer"
+
+gem 'bootstrap-sass'

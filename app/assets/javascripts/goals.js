@@ -9,5 +9,6 @@ $(document).ready( function() {
 		task.toggleClass('checked');
 		});
 		return false;
-						
 });  
+
+

@@ -1,4 +1,9 @@
-<%= form_for(@goal, html: { :multipart => true, role:"form" }) do |f| %>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+   <%= form_for(@goal) do |f| %>
   <% if @goal.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@goal.errors.count, "error") %> prohibited this goal from being saved:</h2>
@@ -10,18 +15,27 @@
       </ul>
     </div>
   <% end %>
-  <br>
 
-
+  <div class="field">
 <%= simple_form_for @goal do |f| %>
     <%= f.label :description %><br>
     <%= f.text_field :description %><br>
   <%= f.association :category %><br>
-  <%= f.label :due_date, "Due Date for Deadlines/End Date for Habits" %><br>
+  <%= f.label :due_date, "Set Due Date (For Goal Due By)" %><br>
   <%= f.text_field :due_date, as: :datepicker, type: "date" %><br>
     <%= f.label :recurring_rules, "Set Recurrance (For Habit)" %><br>
     <%=  f.select_recurring :recurring_rules %><br><br>
   <%= f.button :submit %><br>
 <% end %>
+  </div>
+    <%= link_to 'Destroy', @goal, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
 
 <% end %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
+  </div>
+
+

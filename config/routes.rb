@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   root to: "goals#index"
 
+  get "goals/new" => "goals#new", :as => :new
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -13,8 +13,10 @@
 
  *= require recurring_select
  *= require jquery.ui.datepicker
- *= require_tree .
  *= require_self
+ *= require load_bootstrap
+ *= require bootstrap_and_overrides
+ *= require_tree .
  */
 
 
