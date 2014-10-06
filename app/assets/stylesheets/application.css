@@ -16,6 +16,7 @@
  *= require_self
  *= require load_bootstrap
  *= require bootstrap_and_overrides
+ *= require font-awesome
  *= require_tree .
  */
 

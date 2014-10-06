@@ -3,6 +3,8 @@
 
 $(document).ready( function() {	
 
+
+
 	$( ":checkbox" ).unbind('click');
 	$( ":checkbox" ).click( function() {
 		var task = $(this).parent().parent();
@@ -10,5 +12,4 @@ $(document).ready( function() {
 		});
 		return false;
 });  
-
 

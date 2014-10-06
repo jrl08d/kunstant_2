@@ -51,5 +51,6 @@ gem "cocoon"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "less-rails"
 gem "therubyracer"
+gem 'font-awesome-less'
 
 gem 'bootstrap-sass'

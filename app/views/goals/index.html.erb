@@ -1,4 +1,5 @@
 <h1>Goals & Tasks</h1>
+
 <!-- Button trigger modal -->
 <a href = "#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" >
   New
@@ -23,16 +24,13 @@
         <div class="tab-pane active" id="tab1">
          <% @goal = Goal.new %>
         <%= render 'goals/dtform' %>
-     
          </div>
         <div class="tab-pane" id="tab2">
          <% @goal = Goal.new %>
-         <% @goal.category_id = 2 %>
         <%= render 'goals/dlform' %>
         </div>
             <div class="tab-pane" id="tab3">
          <% @goal = Goal.new %>
-         <% @goal.category_id = 3 %>
         <%= render 'goals/habitform' %>
         </div>
         </div>
@@ -60,9 +58,10 @@
       <% @goals_by_date[date].each do |goal| %>
         <%= content_tag :div, class: "content" do-%>
           <li>
+            
             <%= check_box_tag :done %>
             <%= goal.description %>
-            <%= link_to '(x)', goal_path(goal.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o"), goal_path(goal.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
           </li>
         <% end %>
       <% end %>
