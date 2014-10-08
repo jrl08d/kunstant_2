@@ -1,4 +1,4 @@
-<h1>Goals & Tasks</h1>
+<h2>Goals & Tasks</h2>
 
 <!-- Button trigger modal -->
 <a href = "#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" >
@@ -58,7 +58,6 @@
       <% @goals_by_date[date].each do |goal| %>
         <%= content_tag :div, class: "content" do-%>
           <li>
-            
             <%= check_box_tag :done %>
             <%= goal.description %>
             <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o"), goal_path(goal.id), method: :delete, data: { confirm: 'Are you sure?' } %> 
