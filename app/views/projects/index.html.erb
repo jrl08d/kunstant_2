@@ -18,9 +18,15 @@
     <% @projects.each do |project| %>
       <tr>
         <td><%= project.title %></td>
-
+        
       </tr>
+
+    
+      <td><%= link_to 'Edit', edit_profile_path(project) %></td>
+   
+
     <% end %>
+
   </tbody>
 </table>
 

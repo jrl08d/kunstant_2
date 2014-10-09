@@ -1,0 +1,10 @@
+<%= current_user.email %> 
+<br>
+<% unless @projects.empty? %>
+	<% @projects.each do |project| %>
+		<%= project.title %>
+	<% end %>
+<% else %>
+	You currently have no project
+<% end %>
+<br>

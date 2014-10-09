@@ -53,5 +53,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem "less-rails"
 gem "therubyracer"
 gem 'font-awesome-less'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'carrierwave'
 
 gem 'bootstrap-sass'

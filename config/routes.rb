@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :projects
 
   resources :categories
-
+  #resources :users 
+  resources :profiles
+  
   devise_for :users
   resources :goals
 
