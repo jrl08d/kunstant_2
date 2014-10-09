@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
+
+  # corvo - Creates routes for discussions
   resources :discussions
 
-  resources :posts
+
+  # corvo - Creates routes for Posts & Nests discussions inside posts
+  resources :posts do
+    resources :discussions
+  end
 
   resources :milestones
 
-  resources :projects
+  # corvo - Creates routes for Projects & Nests posts inside projects
+  resources :projects do
+    resources :posts
+  end
 
   resources :categories
 

@@ -2,13 +2,25 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :description %>
-    <%= f.input :title %>
-    <%= f.input :default %>
+    <%= f.label 'Blank?' %><br>
+    <%= f.check_box :default %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.label 'Title' %><br>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-inputs">
+    <%= f.label 'Description' %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div class="form-inputs">
     <%= f.association :user %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit @project.new_record? ? "Create a Project" : "Edit my Project" %>
   </div>
 <% end %>

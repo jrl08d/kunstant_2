@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @discussion = Discussion.new
   end
 
   # GET /posts/new
@@ -19,16 +20,18 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @project = Project.find(params[:project_id])
   end
 
   # POST /posts
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    @project = @post.project
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to @project, notice: 'Post was successfully created' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -40,9 +43,11 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @project = @post.project
+
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to [@project], notice: 'Post was successfully updated' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }

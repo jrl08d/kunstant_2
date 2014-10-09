@@ -19,16 +19,19 @@ class DiscussionsController < ApplicationController
 
   # GET /discussions/1/edit
   def edit
+    @post = Post.find(params[:post_id])
   end
 
   # POST /discussions
   # POST /discussions.json
   def create
     @discussion = Discussion.new(discussion_params)
+    @post = @discussion.post
+    @project = @post.project
 
     respond_to do |format|
       if @discussion.save
-        format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
+        format.html { redirect_to [@project, @post], notice: 'Discussion was successfully created.' }
         format.json { render :show, status: :created, location: @discussion }
       else
         format.html { render :new }
@@ -54,9 +57,12 @@ class DiscussionsController < ApplicationController
   # DELETE /discussions/1
   # DELETE /discussions/1.json
   def destroy
+   @post = @discussion.post
+    @project = @post.project
+
     @discussion.destroy
     respond_to do |format|
-      format.html { redirect_to discussions_url, notice: 'Discussion was successfully destroyed.' }
+      format.html { redirect_to [@project, @post], notice: 'Discussion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

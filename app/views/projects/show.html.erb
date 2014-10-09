@@ -1,24 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<h3><%= @project.title %></h3>
+
 <p>
-  <strong>Description:</strong>
-  <%= @project.description %>
+	[User Goes Here - Maybe avatar? idk] <%= @project.user %>
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
-
-<p>
-  <strong>Default:</strong>
+  <i>Blank?:</i>
   <%= @project.default %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @project.user %>
-</p>
+<div>
+  <%= @project.description %>
+</div>
+
+<br>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<hr />
+
+<!-- Display a list of Posts -->

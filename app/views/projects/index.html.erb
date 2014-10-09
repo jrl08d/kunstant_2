@@ -1,27 +1,35 @@
-<h3>Ongoing projects</h3>
+<h3>Projects Tray</h3>
+
+<br>
+
 <%= link_to 'New Project', new_project_path %>
+
 <br>
-<br>
 
-<table>
-  <thead>
-    <tr>
-  
-      <th>Title</th>
+<!--   <div>
+      <div>Title</div>
+      <div colspan="3"></div>
+  </div> -->
 
+<hr />
 
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div>
 
-  <tbody>
     <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
+        <div><h4><%= link_to project.title, project %></h4></div>
+        <div><i>Blank?: </i><%= project.default %></div>
+        <br>
+        <div><%= truncate project.description, length: 100 %></div>
+        <br>
+        <div>
+          <%= link_to 'Edit', edit_project_path(project) %> |
+          <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>          
+        </div>
 
-      </tr>
+        <hr />
     <% end %>
-  </tbody>
-</table>
+
+  </div>
+
 
 

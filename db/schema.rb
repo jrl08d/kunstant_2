@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009002116) do
+ActiveRecord::Schema.define(version: 20141009013737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20141009002116) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "discussions", force: true do |t|
+    t.integer  "post_id"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "discussions", ["post_id"], name: "index_discussions_on_post_id", using: :btree
 
   create_table "goals", force: true do |t|
     t.string   "description"
@@ -47,6 +56,15 @@ ActiveRecord::Schema.define(version: 20141009002116) do
   end
 
   add_index "milestones", ["project_id"], name: "index_milestones_on_project_id", using: :btree
+
+  create_table "posts", force: true do |t|
+    t.integer  "project_id"
+    t.text     "post_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["project_id"], name: "index_posts_on_project_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.text     "description"
