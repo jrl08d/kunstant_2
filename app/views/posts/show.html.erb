@@ -1,14 +1,46 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Project:</strong>
-  <%= @post.project %>
-</p>
-
-<p>
   <strong>Post text:</strong>
   <%= @post.post_text %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Edit', edit_project_post_path(@post.project, @post) %> |
+<% if @post.project.nil? %>
 <%= link_to 'Back', posts_path %>
+<% else %>
+<%= link_to 'Back', @post.project %>
+<% end %>
+
+
+<br>
+<hr />
+
+<!-- Show Discussions generated here -->
+<h3> Discussions </h3>
+
+<!-- <h3>New Discussion</h3> -->
+<%= render 'discussions/form' %>
+
+
+<% @post.discussions.each do |u| %>
+		<div>
+			<%= link_to "X", u, method: :delete, data: { confirm: 'Sure?' } %>
+		</div>
+
+		<br>
+
+		<div>
+			<%= u.comment %>
+			<br>
+			<i><%= time_ago_in_words u.created_at %> ago</i>
+		</div>
+
+		<br>
+
+		<div>
+			[D.O. HERE]
+		</div>
+    <hr />
+
+<% end %>

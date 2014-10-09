@@ -1,12 +1,21 @@
 <%= simple_form_for(@discussion) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+
+<!--   <div class="form-inputs">
     <%= f.association :post %>
     <%= f.input :comment %>
+  </div> -->
+
+	<div class="form-inputs">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
   </div>
 
+  <div><%= f.hidden_field :post_id, value: @post.id %></div>
+
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.submit @discussion.new_record? ? "Comment!" : "Change my Post" %>
   </div>
+
 <% end %>

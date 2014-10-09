@@ -20,6 +20,27 @@
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
 
+<br>
+
+<h3> Posts </h3>
+
 <hr />
 
-<!-- Display a list of Posts -->
+<!-- <h3>New Posts</h3> -->
+<%= render 'posts/form' %>
+
+<hr />
+
+<!-- Show Posts generated here -->
+
+<% @project.posts.each do |u| %>
+
+		<p>
+			<%= link_to u.post_text, project_post_path(@project, u) %>
+		  <br>
+			<%= time_ago_in_words u.created_at %> ago
+		</p>
+
+    <hr />
+
+<% end %>

@@ -5,11 +5,13 @@
 <!--     <%= f.association :project %> -->
 <!--     <%= f.input :post_text %> -->
     <%= f.label 'Post Goes Here' %><br>
-    <%= f.text_area :post_description %>
+    <%= f.text_area :post_text %>
   </div>
 
   <div><%= f.hidden_field :project_id, value: @project.id %></div>
 
   <div class="form-actions">
-    <%= f.button :submit @post.new_record? ? "Post" : "Change Post" %>
+    <%= f.submit @post.new_record? ? "Post" : "Change Post" %>
   </div>
+
+<% end %>

@@ -20,6 +20,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1/edit
   def edit
     @post = Post.find(params[:post_id])
+    
   end
 
   # POST /discussions
