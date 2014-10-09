@@ -21,6 +21,11 @@
  */
 
 
+.container-fluid,
+.row-fluid { height: inherit; }
+.col-md-3 { height: inherit; }
+.col-md-6 { height: inherit; }
+
 body { padding-top: 100px; background-color:#ccc; }
 footer { margin-top: 100px; }
 table, td, th { vertical-align: middle; border: none; }
@@ -33,8 +38,5 @@ body {
     position: absolute;
 }
 
-.container-fluid,
-.row-fluid { height: inherit; }
-.col-md-3 { height: inherit; }
-.col-md-6 { height: inherit; }
+
 
