@@ -19,7 +19,7 @@
   width: 14.2857142857143%;
 }
 #goals .calendar td {
-  background: rgba(3, 3, 3, 0.388235);
+  background: rgba(3, 3, 3, 0.243434);
   color: #FFF;
   height: 80px;
   vertical-align: top;
@@ -37,6 +37,7 @@
   padding-bottom: 10px;
   text-align: center;
   font-size: 22px;
+  color: #FFF;
 }
 #goals #week a {
   text-decoration: none;
@@ -56,6 +57,9 @@
   display: inline-block;
 }
 
+.fa {
+  color: #fff
+}
 
 .rs_dialog_holder {
   z-index: 1324132412312;
