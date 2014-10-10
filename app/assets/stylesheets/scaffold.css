@@ -34,6 +34,15 @@ box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;  
 }
 
+.rs_dialog_holder .rs_dialog .rs_dialog_content {
+  position: relative;
+  background-color: #fff;
+color: #333;
+font-family: verdana, arial, helvetica, sans-serif;
+font-size: 13px;
+line-height: 18px;
+width: auto;
+}
 
 .recurring_select {
 color: #333;

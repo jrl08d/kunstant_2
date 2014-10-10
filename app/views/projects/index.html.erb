@@ -1,35 +1,65 @@
-<h3>Ongoing projects</h3>
-<%= link_to 'New Project', new_project_path %>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                            </span>Project 1</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Milestones</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        </span><a href="http://www.jquery2dotnet.com">Tasks</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Posts</a>
+                                        <span class="badge">11</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-th">
+                            </span>Project 2</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Milestones</a> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Tasks</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a href="http://www.jquery2dotnet.com">Posts</a>
+                                        <span class="badge">4</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
-<hr>
-
-<table>
-  <thead>
-    <tr>
-
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @projects.each_with_index do |project| %>
-      <tr>
-
-
-        
-
-
-        <td><strong><%= project.title %></strong></td>
-
-
-      </tr>
-
-    
-      <td><%= link_to 'Edit', edit_profile_path(project) %></td>
-   
-
-    <% end %>
-
-  </tbody>
-</table>
-
-
+                </divd>
+            </div>
+        </div>
