@@ -1,0 +1,9 @@
+#bottom{
+	width: 50%;
+	bottom: 0;
+	left: 50%;
+	opacity: 1;
+	-webkit-transform: translateX(-50%);
+	-webkit-transform-origin: 50% 50%;
+	position: absolute;
+}

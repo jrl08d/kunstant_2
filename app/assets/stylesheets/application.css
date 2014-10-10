@@ -37,6 +37,14 @@ table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
 .unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }
 .content {font-family: verdana, arial, helvetica, sans-serif;}
+#shortquote { color: #FFF;
+border-left: 0;}
 
-
-
+#bottom{
+	width: 50%;
+	bottom: 0;
+	left: 50%;
+	opacity: 1;
+	-webkit-transform: translateX(-50%);
+	-webkit-transform-origin: 50% 50%;
+}
