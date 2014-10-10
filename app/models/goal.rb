@@ -3,6 +3,7 @@ class Goal < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
 
+
   def occurrences(up_to_date)
       if recurring_rules
         IceCube::Schedule.new(now = Time.now) do |s|

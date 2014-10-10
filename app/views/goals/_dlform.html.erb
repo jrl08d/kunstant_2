@@ -14,9 +14,10 @@
 
 
 <%= simple_form_for @goal do |f| %>
-    <%= f.input :description, :placeholder => "Set a Goal/Task With a Deadline" %><br><br>
+<%= f.error_notification %>
+    <%= f.input :description, :input_html => {:required => true}, :placeholder => "Set a Goal/Task With a Deadline" %><br><br>
   <%= f.label :due_date, "Due Date" %><br>
-  <%= f.text_field :due_date, as: :datepicker, type: "date" %><br><br>
+  <%= f.text_field :due_date, as: :datepicker, type: "date", :required => true %><br><br>
   <div class= "hidden">
    <%= f.association :category, :selected => 2 %>
 </div>

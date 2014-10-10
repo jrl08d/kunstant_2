@@ -14,7 +14,8 @@
 
 
 <%= simple_form_for @goal do |f| %>
-    <%= f.input :description, :placeholder => "Set A Goal!" %><br><br>
+<%= f.error_notification %>
+    <%= f.input :description, :input_html => {:required => true}, :placeholder => "Set A Goal!" %><br><br>
     <div class= "hidden">
     <%= f.association :category, :selected => 1 %>
   </div>
