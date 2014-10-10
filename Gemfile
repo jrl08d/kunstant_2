@@ -43,7 +43,7 @@ gem 'devise'
 gem 'fullcalendar-rails'
 
 gem 'jquery-ui-rails'
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 gem 'ice_cube', '~> 0.11'
 gem 'recurring_select'
 gem 'formtastic', '~> 3.0'
@@ -53,5 +53,7 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem "less-rails"
 gem "therubyracer"
 gem 'font-awesome-less'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'carrierwave'
 
 gem 'bootstrap-sass'

@@ -4,4 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 	has_many :goals
+	has_many :projects
+
+has_attached_file :avatar, styles: {
+    thumb: '100x100>',
+    square: '125x125#',
+    medium: '300x300>'
+  }, :default_url => "/images/:style/missing.png"
+  	validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 end
