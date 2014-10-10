@@ -43,7 +43,7 @@ gem 'devise'
 gem 'fullcalendar-rails'
 
 gem 'jquery-ui-rails'
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 gem 'ice_cube', '~> 0.11'
 gem 'recurring_select'
 gem 'formtastic', '~> 3.0'

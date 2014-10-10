@@ -24,10 +24,11 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
         <li class="active"><a href="/goals">Dashboard</a></li>
         <li class="active"><a href="/projects">Projects</a></li>
         <li class="active"><%= link_to "My Page", profile_path(current_user.id) %>
-<% if user_signed_in? %><% end %>
+<% end %>
         
       </ul>
       <p class="navbar-text pull-right">
@@ -58,7 +59,7 @@
  </div>
 
 
-  <div id="login">
+  <div class="container" >
  	<%if user_signed_in? -%>
  	<% else -%>
  	<ul>

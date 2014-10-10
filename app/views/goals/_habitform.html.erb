@@ -14,7 +14,7 @@
 
 
 <%= simple_form_for @goal do |f| %>
-    <%= f.text_field :description, :placeholder => "What Habit Do You Wish To Build?" %><br><br>
+    <%= f.input :description, :placeholder => "What Habit Do You Wish To Build?" %>
      <%= f.label :recurring_rules, "Set Recurrance Schedule" %><br>
     <%=  f.select_recurring :recurring_rules %><br><br>
   <%= f.label :due_date, "Set End Date" %><br>
@@ -22,7 +22,8 @@
     <div class= "hidden">
      <%= f.association :category, :selected => 3 %>
  </div>
-  <%= f.button :submit %><br>
+  <%= f.button :submit, "Add To Calendar" %><br>
 <% end %>
 
 <% end %>
+
