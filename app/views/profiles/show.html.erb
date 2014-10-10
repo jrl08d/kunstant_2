@@ -1,10 +1,47 @@
-<%= current_user.email %> 
-<br>
-<% unless @projects.empty? %>
-	<% @projects.each do |project| %>
-		<%= project.title %>
-	<% end %>
-<% else %>
-	You currently have no project
-<% end %>
-<br>
+
+<div class="container profile">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well well-small clearfix">
+        <div class="row">
+          <div class="col-md-2">
+          	<%= image_tag current_user.avatar(:medium),  :class => "img-polaroid" %>
+          </div>
+          <div class="col-md-4">
+					<h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+					<ul class="list-unstyled">
+              			<li><i class="icon-phone"></i> 916-241-3613</li>
+              			<li><i class="icon-envelope"></i> mrsmith@me.com</li>
+              			<li><i class="icon-globe"></i> http://bootnipets.com</li>
+           			</ul>
+          </div>
+          <div class="col-md-6">
+          <ul class="list-inline stats">
+               <li>
+                 <span>275</span>
+                 Friends
+              </li>
+              <li>
+                 <span>354</span>
+                 Followers
+              </li>
+               <li>
+                 <span>186</span>
+                 Photos
+              </li>
+          </ul>
+            <div><!--/span6-->
+            </div><!--/row-->
+      </div>
+      <!--Body content-->
+    </div>
+  </div>
+      
+    <div class="well clearfix">
+        <b>About:</b>
+        <%= current_user.about %>
+        
+    </div>
+</div>                    
+
+					
