@@ -67,10 +67,13 @@ hr { display: block; height: 1px;
 }
 .col-md-3#projlist {
   border-radius: 5px;
-  background-color: #dceaf4;
+  background-color: #f5f5f5;
+border: 1px solid #e3e3e3;
+
 }.col-md-3#postlist {
   border-radius: 5px;
-  background-color: #dceaf4;
+  background-color: #f5f5f5;
+border: 1px solid #e3e3e3;
 }
 
 .panel { margin-top: 10px;}

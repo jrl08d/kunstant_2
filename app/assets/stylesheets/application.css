@@ -21,7 +21,7 @@
  */
 
 
-.container-fluid,
+.special,
 .row-fluid { height: inherit; }
 .col-md-3 { height: inherit; }
 .col-md-6 { height: inherit; }
@@ -36,6 +36,7 @@ body { padding-top: 100px; background-color:#ccc; height: 100%;
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
 .unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }
+.content {font-family: verdana, arial, helvetica, sans-serif;}
 
 
 
