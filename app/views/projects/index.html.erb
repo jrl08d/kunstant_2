@@ -1,3 +1,39 @@
+<<<<<<< HEAD
+<h3>Projects Tray</h3>
+
+<br>
+
+<%= link_to 'New Project', new_project_path %>
+
+<br>
+
+<!--   <div>
+      <div>Title</div>
+      <div colspan="3"></div>
+  </div> -->
+
+<hr />
+
+  <div>
+
+    <% @projects.each do |project| %>
+        <div><h4><%= link_to project.title, project %></h4></div>
+        <div><i>Blank?: </i><%= project.default %></div>
+        <br>
+        <div><%= truncate project.description, length: 100 %></div>
+        <br>
+        <div>
+          <%= link_to 'Edit', edit_project_path(project) %> |
+          <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %>          
+        </div>
+
+        <hr />
+    <% end %>
+
+  </div>
+
+
+=======
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -70,6 +106,7 @@
                         </div>
                     </div>
                 </div>
+>>>>>>> c03be562148ee8ecc4a1e31a29f300f2c9645f23
 
                 </divd>
             </div>

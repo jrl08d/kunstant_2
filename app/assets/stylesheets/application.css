@@ -35,10 +35,15 @@ body { padding-top: 100px; background-color:#ccc; height: 100%;
     position: absolute; }
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
+<<<<<<< HEAD
+form { margin:100px; padding:50px; border:1px solid #ccc; background-color:#fff;}
+/*.unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }*/
+=======
 .unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }
 .content {font-family: verdana, arial, helvetica, sans-serif;}
 #shortquote { color: #FFF;
 border-left: 0;}
+>>>>>>> c03be562148ee8ecc4a1e31a29f300f2c9645f23
 
 #bottom{
 	width: 50%;

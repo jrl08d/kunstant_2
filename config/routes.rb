@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+
+=======
   resources :milestones
 
   resources :projects
@@ -7,12 +10,33 @@ Rails.application.routes.draw do
   #resources :users 
   resources :profiles
   
+>>>>>>> c03be562148ee8ecc4a1e31a29f300f2c9645f23
   devise_for :users
   resources :goals
 
   root to: "goals#index"
 
   get "goals/new" => "goals#new", :as => :new
+
+  # corvo - Creates routes for discussions
+  resources :discussions
+
+  # corvo - Creates routes for Posts & Nests discussions inside posts
+  resources :posts do
+    resources :discussions
+  end
+
+  # corvo - Creates routes for Projects & Nests posts inside projects
+  resources :projects do
+    resources :posts
+  end
+
+  resources :categories
+  
+  resources :milestones
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
