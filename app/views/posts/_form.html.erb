@@ -11,13 +11,12 @@
   <div><%= f.hidden_field :project_id, value: @project.id %></div>
 
   <div class="form actions">
-  <%= f.file_field :post_img %></div>
+  <%= f.file_field :post_img %>
+  </div>
 
   <div class="form-actions">
     <%= f.submit @post.new_record? ? "Post" : "Change Post" %>
   </div>
-
-
 
 <% end %>
 

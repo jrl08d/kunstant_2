@@ -41,9 +41,12 @@
 <% @project.posts.each do |u| %>
 
 		<p>
-			<%= link_to u.post_text, project_post_path(@project, u) %>
-		  <br>
-			<%= time_ago_in_words u.created_at %> ago
+				<%= link_to image_tag(u.post_img.url(:small)), project_post_path(@project, u) %>
+			<br>
+				<%= link_to u.post_text, project_post_path(@project, u) %>
+			<br>
+
+				<%= time_ago_in_words u.created_at %> ago
 		</p>
 
     <hr />

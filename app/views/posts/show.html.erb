@@ -6,18 +6,18 @@
   <%= @post.post_text %>
 </p>
 
+<div id="post_image">
+<%= image_tag @post.post_img.url(:medium) %>
+<div>
 
-<%= image_tag @post.post_img.url %>
-
-
-
+<div>
 <%= link_to 'Edit', edit_project_post_path(@post.project, @post) %> |
 <% if @post.project.nil? %>
 <%= link_to 'Back', posts_path %>
 <% else %>
 <%= link_to 'Back', @post.project %>
 <% end %>
-
+<div>
 
 
 
