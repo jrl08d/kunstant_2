@@ -37,12 +37,12 @@ var __slice = Array.prototype.slice;
     function Sketch(el, opts) {
       this.el = el;
       this.canvas = $(el);
-      this.context = el.getContext('2d');
+      //this.context = el.getContext('2d'); - SOMEHOW THIS FIXES RESIZING?
       this.options = $.extend({
         toolLinks: true,
         defaultTool: 'marker',
         defaultColor: '#000000',
-        defaultSize: 5
+        defaultSize: 3
       }, opts);
       this.painting = false;
       this.color = this.options.defaultColor;
@@ -117,7 +117,7 @@ var __slice = Array.prototype.slice;
 
     Sketch.prototype.redraw = function() {
       var sketch;
-      // this.el.width = this.canvas.width();
+      // this.el.width = this.canvas.width(); -- THIS IS A HUGE BUG
       this.context = this.el.getContext('2d');
       sketch = this;
       $.each(this.actions, function() {
@@ -187,7 +187,6 @@ var __slice = Array.prototype.slice;
       return this.context.globalCompositeOperation = oldcomposite;
     }
   };
-  $('canvas').attr('height', $(window).height().toString() + 'px'); $('#mysketch').sketch();
 
 })(jQuery);
 });
