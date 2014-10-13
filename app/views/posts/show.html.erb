@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+
 <p>
   <strong>Post text:</strong>
   <%= @post.post_text %>
 </p>
+
+
+<%= image_tag @post.post_img.url %>
+
+
 
 <%= link_to 'Edit', edit_project_post_path(@post.project, @post) %> |
 <% if @post.project.nil? %>
@@ -13,7 +19,10 @@
 <% end %>
 
 
+
+
 <hr />
+
 
 <div>
 
