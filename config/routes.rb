@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   resources :milestones
 
-  resources :projects
+  # resources :projects
 
   resources :categories
+  
   #resources :users 
   resources :profiles
   

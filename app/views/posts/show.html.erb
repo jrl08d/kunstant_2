@@ -1,71 +1,99 @@
-<p id="notice"><%= notice %></p>
-
-
-<p>
-  <strong>Post text:</strong>
-  <%= @post.post_text %>
-</p>
-
-<div id="post_image">
-<%= image_tag @post.post_img.url(:medium) %>
-<div>
-
-<div>
-<%= link_to 'Edit', edit_project_post_path(@post.project, @post) %> |
-<% if @post.project.nil? %>
-<%= link_to 'Back', posts_path %>
-<% else %>
-<%= link_to 'Back', @post.project %>
-<% end %>
-<div>
+<!-- <p id="notice"><%= notice %></p> -->
 
 
 
-<hr />
+
+<div class="container special">
+
+	<div class="row-fluid">
+		<!-- OUTSIDE WRAPPER -->
+		<div class="col-sm-8 col-md-8">
+        	<div class="affix">
+
+				
+				<canvas id="tools_sketch" height="100%" style="background: url(<%= @post.post_img.url(:large)%>) no-repeat center"></canvas>
+				<script type="text/javascript">
+					$(function() {
+				    $('#tools_sketch').sketch({defaultColor: "#ff0"});
+				    $('canvas').attr('height', $(window).height().toString() + 'px'); $('#mysketch').sketch();
+				  });
+				</script>
+			<!-- <div>
 
 
-<div>
-
-<canvas id="simple_sketch" width="800" height="300"></canvas>
-<script type="text/javascript">
-  $(function() {
-    $('#simple_sketch').sketch();
-  });
-</script>
-
-
- 
-</div>   
-
-
-<br>
-<hr />
-
-<!-- Show Discussions generated here -->
-<h3> Discussions </h3>
-
-<!-- <h3>New Discussion</h3> -->
-<%= render 'discussions/form' %>
+				<div class="tools">
+				  <a href="#tools_sketch" data-tool="marker">Marker</a>
+				  <a href="#tools_sketch" data-tool="eraser">Eraser</a>
+				</div>
+				<canvas id="tools_sketch" width="800" height="300" style="background: url(http://farm1.static.flickr.com/91/239595759_3c3626b24a_b.jpg) no-repeat center center;"></canvas>
+				<script type="text/javascript">
+				  $(function() {
+				    $('#tools_sketch').sketch({defaultColor: "#ff0"});
+				  });
+				</script>
+        
 
 
-<% @post.discussions.each do |u| %>
-		<div>
-			<%= link_to "X", u, method: :delete, data: { confirm: 'Sure?' } %>
+				<canvas id="simple_sketch" width="800" height="300"></canvas>
+				<script type="text/javascript">
+				  $(function() {
+				    $('#simple_sketch').sketch();
+				  });
+				</script>
+				 
+				</div>   
+				<br>
+				<hr /> -->
+			</div>
 		</div>
 
-		<br>
+		<div class="col-sm-3 col-md-3">
 
-		<div>
-			<%= u.comment %>
+			<div>
+				USER AVATAR GOES HERE?
+			</div>
 			<br>
-			<i><%= time_ago_in_words u.created_at %> ago</i>
+			<div id="post_text">
+  				<%= @post.post_text %>
+			</div>
+			<br>
+			<div>
+				<%= link_to 'Edit', edit_project_post_path(@post.project, @post) %> |
+				<% if @post.project.nil? %>
+				<%= link_to 'Back', posts_path %>
+				<% else %>
+				<%= link_to 'Back', @post.project %>
+				<% end %>
+			</div>
+
+			<hr />
+
+			<!-- <h3>New Discussion</h3> -->
+			<%= render 'discussions/form' %>
+
+			<!-- Show Discussions generated here -->
+			<% @post.discussions.each do |u| %>
+					<div>
+						<%= link_to "X", u, method: :delete, data: { confirm: 'Delete comment?' } %>
+					</div>
+
+					<br>
+
+					<div>
+						<%= u.comment %>
+						<br>
+						<i><%= time_ago_in_words u.created_at %> ago</i>
+					</div>
+
+					<br>
+
+					<div>
+						[D.O. HERE]
+					</div>
+			    	<hr />
+			<% end %>
 		</div>
 
-		<br>
-
-		<div>
-			[D.O. HERE]
-		</div>
-    <hr />
-
-<% end %>
+	</div>
+	
+</div>

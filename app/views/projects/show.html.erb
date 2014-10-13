@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <h3><%= @project.title %></h3>
 
@@ -37,7 +37,6 @@
 <hr />
 
 <!-- Show Posts generated here -->
-
 <% @project.posts.each do |u| %>
 
 		<p>
@@ -45,8 +44,9 @@
 			<br>
 				<%= link_to u.post_text, project_post_path(@project, u) %>
 			<br>
-
 				<%= time_ago_in_words u.created_at %> ago
+			<br>
+				<%= link_to "X", u, method: :delete, data: { confirm: 'Delete Post?' } %>
 		</p>
 
     <hr />

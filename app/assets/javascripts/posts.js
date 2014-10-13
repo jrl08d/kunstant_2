@@ -101,6 +101,9 @@ var __slice = Array.prototype.slice;
       this.action = null;
       return this.redraw();
     };
+
+
+
     Sketch.prototype.onEvent = function(e) {
       if (e.originalEvent && e.originalEvent.targetTouches) {
         e.pageX = e.originalEvent.targetTouches[0].pageX;
@@ -110,9 +113,11 @@ var __slice = Array.prototype.slice;
       e.preventDefault();
       return false;
     };
+
+
     Sketch.prototype.redraw = function() {
       var sketch;
-      this.el.width = this.canvas.width();
+      // this.el.width = this.canvas.width();
       this.context = this.el.getContext('2d');
       sketch = this;
       $.each(this.actions, function() {
@@ -182,6 +187,7 @@ var __slice = Array.prototype.slice;
       return this.context.globalCompositeOperation = oldcomposite;
     }
   };
-})(jQuery);
+  $('canvas').attr('height', $(window).height().toString() + 'px'); $('#mysketch').sketch();
 
+})(jQuery);
 });
