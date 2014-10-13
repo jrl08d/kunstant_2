@@ -2,32 +2,20 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-<<<<<<< HEAD
-    <%= f.label 'Blank?' %><br>
-    <%= f.check_box :default %>
-  </div>
-
-  <div class="form-inputs">
-    <%= f.label 'Title' %><br>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="form-inputs">
-    <%= f.label 'Description' %><br>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="form-inputs">
-=======
-    <%= f.input :description %>
     <%= f.input :title %>
+    <%= f.input :description %>
     <%= f.input :default %>
-    <%= f.file_field :avatar %>
->>>>>>> c03be562148ee8ecc4a1e31a29f300f2c9645f23
-    <%= f.association :user %>
   </div>
+
+<!--   <div>
+    <%= f.file_field :avatar %>
+  </div> -->
+
+  <br>
 
   <div class="form-actions">
     <%= f.submit @project.new_record? ? "Create a Project" : "Edit my Project" %>
   </div>
+  
 <% end %>
+<br>

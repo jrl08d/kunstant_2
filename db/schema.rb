@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20141009013737) do
-=======
-ActiveRecord::Schema.define(version: 20141009184634) do
->>>>>>> c03be562148ee8ecc4a1e31a29f300f2c9645f23
+ActiveRecord::Schema.define(version: 20141013014721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +62,10 @@ ActiveRecord::Schema.define(version: 20141009184634) do
     t.text     "post_text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "post_img_file_name"
+    t.string   "post_img_content_type"
+    t.integer  "post_img_file_size"
+    t.datetime "post_img_updated_at"
   end
 
   add_index "posts", ["project_id"], name: "index_posts_on_project_id", using: :btree

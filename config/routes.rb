@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
-=======
   resources :milestones
 
-  resources :projects
+  # resources :projects
 
   resources :categories
+  
   #resources :users 
   resources :profiles
   
->>>>>>> c03be562148ee8ecc4a1e31a29f300f2c9645f23
   devise_for :users
   resources :goals
 
@@ -31,10 +29,7 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  resources :categories
   
-  resources :milestones
-
 
 
 
