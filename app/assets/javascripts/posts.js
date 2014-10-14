@@ -42,7 +42,7 @@ var __slice = Array.prototype.slice;
         toolLinks: true,
         defaultTool: 'marker',
         defaultColor: '#000000',
-        defaultSize: 1
+        defaultSize: 3
       }, opts);
       this.painting = false;
       this.color = this.options.defaultColor;
@@ -101,7 +101,6 @@ var __slice = Array.prototype.slice;
       this.action = null;
       return this.redraw();
     };
-
 
 
     Sketch.prototype.onEvent = function(e) {

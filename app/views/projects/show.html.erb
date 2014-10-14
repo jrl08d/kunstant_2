@@ -14,15 +14,6 @@
 
 <br>
 
-<!-- <p>
-	<strong>Image Upload:</strong><br>
-	<%= image_tag @project.avatar.url(:medium) %><br>
-</p> -->
-
-
-
-<br>
-
 <h3> Posts &nbsp; <a href = "#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" >
   New
 </a> </h3>
@@ -41,13 +32,10 @@
       <div class="modal-body">
         
        
-       
          <% @post = Post.new %>
         <%= render 'posts/form' %>
       
     
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -56,17 +44,12 @@
   </div>
 </div>
 
-
-
 <!-- Show Posts generated here -->
 <div class="container"
 <div id="grid" data-columns>
 <div id="posts">
 	
-                    
-
 <% @project.posts.each do |u| %>
-
 	
 				<div class="column size-1of3 panel panel-default">
 					
