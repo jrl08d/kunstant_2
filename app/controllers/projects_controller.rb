@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @posts = Post.all
-    @projects = Project.all
+    @projects = current_user.projects
     render :index, layout: "project"
     project = Project.where.not(avatar_file_name: nil)
   end
@@ -20,7 +20,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @projects = Project.all
+    @projects = current_user.projects
+  
     @post = Post.new
     render :show, layout: "project"   
   end
@@ -28,6 +29,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+     @user = current_user
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /projects/1/edit
@@ -37,7 +44,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.new(project_params)
 
     respond_to do |format|
       if @project.save
@@ -82,6 +89,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:description, :title, :default, :user_id, :post_img)
+      params.require(:project).permit(:description, :title, :default,:current_user, :user_id, :post_img)
     end
 end
