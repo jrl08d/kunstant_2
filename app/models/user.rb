@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   end
 
   def already_following?(other_user)
-    self.relationships.include? Relationship.find_by(followed_id: other_user.id) 
+    Relationship.where(follower_id: self.id, followed_id: other_user.id).exists?
   end
 
   def is_following # show me the relationship where the user is the follower return their relatioship. Returns an array of all the relationship where they are the follower 

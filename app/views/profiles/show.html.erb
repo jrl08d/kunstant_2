@@ -22,11 +22,17 @@
           <div class="col-md-6 stat">
           <ul class="list-inline stats">
             <% unless current_user == @user %>
-              <% unless current_user.already_following?(@user) %>
-                <%= render "follow_form" if signed_in?  %>
-             <% else %>
+
+              <% if current_user.already_following?(@user) %>
+              
                 <%= render "unfollow"  if signed_in? %>
-             <% end %>
+
+                <% else %>
+
+                <%= render "follow_form" if signed_in?  %>
+             
+              <% end %>
+            
             <% end %>
 
             <li>
