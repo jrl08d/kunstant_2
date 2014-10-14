@@ -4,99 +4,107 @@
 
 	<div class="row-fluid">
 		<!-- OUTSIDE WRAPPER -->
-		<div class="col-sm-8 col-md-8">
+		<div class="col-sm-8 col-md-8 col-lg-8" id='canvas_container' >
 
+			<!-- THIS IS THE LOOP THAT SHOWS THE ANNOTATIONS -->
 			<div class="affix" style="z-index: 100;">
-			<% @post.discussions.each do |u| %>
-        			<img src='<%= u.annotation %>' class='test hidden' id="<%= u.id %>" />
+				<% @post.discussions.each do |u| %>
+				<img src='<%= u.annotation %>' class='test hidden' id="<%= u.id %>" />
 				<% end %>
 			</div>
 
+			<!-- THIS IS THE CANVAS USING SKETCH.JS THING -->
 			<div class="affix">
-        
+				
 				<canvas class="sketch_canvas" id="tools_sketch" style="background: url(<%= @post.post_img.url(:large)%>) no-repeat center"/>
 
-				<script type="text/javascript">
+					<script type="text/javascript">
 					$(function() {
-					    $('#tools_sketch').sketch({defaultColor: "#ff0", 
+						$('#tools_sketch').sketch({defaultColor: "#ff0", 
 					});
-					    $('canvas').attr('height', $(window).height().toString() + 'px'); 
-					    $('#mysketch').sketch();		
-					    $('#tools_sketch').on('click', function(){
-								console.log($('#tools_sketch')[0].toDataURL());
-								var sk = $('#tools_sketch');
-								$('#targetImage').attr('src', sk[0].toDataURL() );
-								$('#discussion_annotation').val($('#tools_sketch')[0].toDataURL())
-					    	});	    
+						$('canvas').attr('height', $(window).height().toString() + 'px'); 
+						$('canvas').attr('width', $('#canvas_container').width().toString() + 'px'); 
+						$('#mysketch').sketch();		
+						$('#tools_sketch').on('click', function(){
+							console.log($('#tools_sketch')[0].toDataURL());
+							var sk = $('#tools_sketch');
+							$('#targetImage').attr('src', sk[0].toDataURL() );
+							$('#discussion_annotation').val($('#tools_sketch')[0].toDataURL())
+						});	    
 					});
 					$('#upload').click(function () {
-    					$.post('/upload.', { data: $('#targetImage').get(0).toDataURL() }, 
-    						function () { alert('uploaded'); });
+						$.post('/upload.', { data: $('#targetImage').get(0).toDataURL() }, 
+							function () { alert('uploaded'); });
 					});	
-				</script>
+					</script>
 
-			</div>
-		</div>
-
-		<div class="col-sm-3 col-md-3">
-
-			<div>
-				USER AVATAR GOES HERE?
-			</div>
-			<br>
-			<div id="post_text">	
-  				<%= @post.post_text %>
-			</div>
-			<br>
-			<div>
-				<%= link_to 'Edit', edit_project_post_path(@post.project, @post) %> |
-				<% if @post.project.nil? %>
-				<%= link_to 'Back', posts_path %>
-				<% else %>
-				<%= link_to 'Back', @post.project %>
-				<% end %>
+				</div>
 			</div>
 
-			<hr />
+			<div class="col-sm-3 col-md-3">
 
-			<!-- <h3>New Discussion</h3> -->
-			<%= render 'discussions/form' %>
+				<!-- USER AVATAR GOES HERE -->
 
-			<!-- Show Discussions generated here -->
-			<% @post.discussions.each do |u| %>
+				<div id="post_text">	
+					<%= @post.post_text %>
+				</div>
+				<br>
+				<div>
+					<button class="btn btn-default">	
+						<%= link_to 'Edit', edit_project_post_path(@post.project, @post) %>
+					</button>
 					
-					<div class="commentdiv">
-						<p><%= u.comment %>&nbsp;<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), u, method: :delete, data: { confirm: 'Delete Discussion?' } %></p>
-						<p><i><%= time_ago_in_words u.created_at %> ago</i></p>
+					<% if @post.project.nil? %>
+					<button class="btn btn-default">
+						<%= link_to 'Back', posts_path %>
+					</button>
+					<% else %>
+					<button class="btn btn-default">
+						<%= link_to 'Back', @post.project %>
+					</button>
+					<% end %>
+				</div>
+
+
+				<!-- <h3>New Discussion</h3> -->
+				<%= render 'discussions/form' %>
+
+				<!-- Show Discussions generated here -->
+				<% @post.discussions.each do |u| %>
+				
+				<div class="commentdiv">
+					<p><%= u.comment %>&nbsp;</p>
+					<p><i><%= time_ago_in_words u.created_at %> ago</i></p>
 					
 
 					<div class="btn-group btn-toggle"> 
-					    <button class="btn btn-default" id="toggle_on_<%= u.id %>">ON</button>					
-					    <button class="btn btn-default" id="toggle_off_<%= u.id %>">OFF</button>					
+						<button class="btn btn-default" id="toggle_on_<%= u.id %>">ON</button>					
+						<button class="btn btn-default" id="toggle_off_<%= u.id %>">OFF</button>
+						<button class="btn btn-default"><%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), u, method: :delete, data: { confirm: 'Delete Discussion?' } %></button>					
 					</div>
-					</div>
-					
-					  <!-- Add jquery toggle magic stuff -->
+				</div>
+				
+				<!-- Add jquery toggle magic stuff -->
 
-					  	<script type="text/javascript">
-					  		$(document).ready(function() {
-							    $("#toggle_on_<%= u.id %>").click(
-							    	function(){
-							        	$('.test').addClass('hidden');
-							        	$('#<%= u.id %>').removeClass('hidden');
-								 	}
-								);
+				<script type="text/javascript">
+				$(document).ready(function() {
+					$("#toggle_on_<%= u.id %>").click(
+						function(){
+							$('.test').addClass('hidden');
+							$('#<%= u.id %>').removeClass('hidden');
+						}
+						);
 
-							    $("#toggle_off_<%= u.id %>").click(
-							    	function(){
-							        	$('#<%= u.id %>').addClass('hidden');
-								 	}
-								);
-							});   
-						</script>
-					<hr />
-			<% end %>
+					$("#toggle_off_<%= u.id %>").click(
+						function(){
+							$('#<%= u.id %>').addClass('hidden');
+						}
+						);
+				});   
+				</script>
+				
+				<% end %>
+			</div>
 		</div>
+		
 	</div>
-	
-</div>
