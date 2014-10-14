@@ -8,44 +8,41 @@
 	<div class="row-fluid">
 		<!-- OUTSIDE WRAPPER -->
 		<div class="col-sm-8 col-md-8">
-        	<div class="affix">
 
-				
-				<canvas id="tools_sketch" height="100%" style="background: url(<%= @post.post_img.url(:large)%>) no-repeat center"></canvas>
+			<div class="affix" style="z-index: 100;">
+			<% @post.discussions.each do |u| %>
+        			<img src='<%= u.annotation %>' class='test hidden' id="<%= u.id %>" />
+				<% end %>
+			</div>
+
+			<div class="affix">
+        
+				<canvas class="sketch_canvas" id="tools_sketch" height="100%" style="background: url(<%= @post.post_img.url(:large)%>) no-repeat center"/>
+
 				<script type="text/javascript">
 					$(function() {
-				    $('#tools_sketch').sketch({defaultColor: "#ff0"});
-				    $('canvas').attr('height', $(window).height().toString() + 'px'); $('#mysketch').sketch();				    
-				  });
+					    $('#tools_sketch').sketch({defaultColor: "#ff0", 
+					    });
+					    $('canvas').attr('height', $(window).height().toString() + 'px'); 
+					    $('#mysketch').sketch();		
+					    $('#tools_sketch').on('click', function(){
+								console.log($('#tools_sketch')[0].toDataURL());
+								var sk = $('#tools_sketch');
+								$('#targetImage').attr('src', sk[0].toDataURL() );
+								$('#discussion_annotation').val($('#tools_sketch')[0].toDataURL())
+					    	});	    
+					});
+
+					$('#upload').click(function () {
+    					$.post('/upload.', { data: $('#targetImage').get(0).toDataURL() }, 
+    						function () { alert('uploaded'); });
+					});	
 				</script>
-			<!-- <div>
 
-
-				<div class="tools">
-				  <a href="#tools_sketch" data-tool="marker">Marker</a>
-				  <a href="#tools_sketch" data-tool="eraser">Eraser</a>
-				</div>
-				<canvas id="tools_sketch" width="800" height="300" style="background: url(http://farm1.static.flickr.com/91/239595759_3c3626b24a_b.jpg) no-repeat center center;"></canvas>
-				<script type="text/javascript">
-				  $(function() {
-				    $('#tools_sketch').sketch({defaultColor: "#ff0"});
-				  });
-				</script>
-        
-
-
-				<canvas id="simple_sketch" width="800" height="300"></canvas>
-				<script type="text/javascript">
-				  $(function() {
-				    $('#simple_sketch').sketch();
-				  });
-				</script>
-				 
-				</div>   
-				<br>
-				<hr /> -->
+				<!-- <img src="" style='opacity:0' id="targetImage"></img> -->
 			</div>
 		</div>
+
 
 		<div class="col-sm-3 col-md-3">
 
@@ -53,7 +50,7 @@
 				USER AVATAR GOES HERE?
 			</div>
 			<br>
-			<div id="post_text">
+			<div id="post_text">	
   				<%= @post.post_text %>
 			</div>
 			<br>
@@ -83,14 +80,38 @@
 						<%= u.comment %>
 						<br>
 						<i><%= time_ago_in_words u.created_at %> ago</i>
+						<br>
+<!-- 							<%= image_tag u.annotation %> -->
 					</div>
 
 					<br>
 
-					<div>
-						[D.O. HERE]
-					</div>
-			    	<hr />
+					  <div class="btn-group btn-toggle"> 
+					    <button class="btn btn-default" id="toggle_on_<%= u.id %>">ON</button>					
+					    <button class="btn btn-default" id="toggle_off_<%= u.id %>">OFF</button>					
+					  </div>
+
+					  <!-- Add jquery toggle magic stuff -->
+
+					  	<script type="text/javascript">
+					  		$(document).ready(function() {
+							    $("#toggle_on_<%= u.id %>").click(
+							    	function(){
+							        	$('.test').addClass('hidden');
+							        	$('#<%= u.id %>').removeClass('hidden');
+								 	}
+								);
+
+							    $("#toggle_off_<%= u.id %>").click(
+							    	function(){
+							        	$('#<%= u.id %>').addClass('hidden');
+								 	}
+								);
+
+							});   
+						</script>
+<!--  -->
+					<hr />
 			<% end %>
 		</div>
 

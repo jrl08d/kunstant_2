@@ -187,6 +187,7 @@ var __slice = Array.prototype.slice;
       return this.context.globalCompositeOperation = oldcomposite;
     }
   };
+  
 
 })(jQuery);
 });
