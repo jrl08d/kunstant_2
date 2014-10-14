@@ -36,6 +36,7 @@ th { border-bottom: 1px solid #DDD; }
 
 
 form {  padding:40px;  background-color:#fff;}
+form.edit_relationship, form.new_relationship {  padding:1px;  background-color:inherit;}
 
 
 .unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }

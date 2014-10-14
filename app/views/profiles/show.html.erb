@@ -16,19 +16,8 @@
              <% if @user == current_user %>
 					<h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
           <% else %>
-          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-           <% end %>
-					<ul class="list-unstyled">
-              			<li><i class="fa fa-phone"></i></i> 916-241-3613</li>
-              			<li><i class="fa fa-envelope"></i> davinci@houseofmedici.co</li>
-              			<li><i class="fa fa-globe"></i> http://www.leonardoda-vinci.org</li>
-           			</ul>
-          </div>
-          <div class="col-md-6 stat">
-          <ul class="list-inline stats">
-            <% unless current_user == @user %>
-
-              <% if current_user.already_following?(@user) %>
+          <h2><%= @user.first_name %> <%= @user.last_name %>
+            <% if current_user.already_following?(@user) %>
               
                 <%= render "unfollow"  if signed_in? %>
 
@@ -37,8 +26,16 @@
                 <%= render "follow_form" if signed_in?  %>
              
               <% end %>
-            
-            <% end %>
+           <% end %></h2>
+					<ul class="list-unstyled">
+              			<li><i class="fa fa-phone"></i></i> 916-241-3613</li>
+              			<li><i class="fa fa-envelope"></i> davinci@houseofmedici.co</li>
+              			<li><i class="fa fa-globe"></i> http://www.leonardoda-vinci.org</li>
+           			</ul>
+          </div>
+          <div class="col-md-6 stat">
+          <ul class="list-inline stats">
+
 
             <li>
               <span><%= @user.is_following.size %></span>
