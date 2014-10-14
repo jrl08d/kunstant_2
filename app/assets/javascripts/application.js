@@ -14,7 +14,7 @@
 //= require jquery.cookie
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery.ui.datepicker
+
 
 //= require recurring_select
 //= require cocoon

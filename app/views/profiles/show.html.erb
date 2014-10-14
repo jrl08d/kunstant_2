@@ -5,17 +5,28 @@
         <div class="row">
           <div class="col-md-2">
             <% if @user == current_user %>
+
           	<%= image_tag current_user.avatar(:square),  :class => "img-polaroid" %>
             <% else %>
             <%= image_tag @user.avatar(:square),  :class => "img-polaroid" %>
             <% end %>
+
           </div>
           <div class="col-md-4 info">
              <% if @user == current_user %>
 					<h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
           <% else %>
-          <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-           <% end %>
+          <h2><%= @user.first_name %> <%= @user.last_name %>
+            <% if current_user.already_following?(@user) %>
+              
+                <%= render "unfollow"  if signed_in? %>
+
+                <% else %>
+
+                <%= render "follow_form" if signed_in?  %>
+             
+              <% end %>
+           <% end %></h2>
 					<ul class="list-unstyled">
               			<li><i class="fa fa-phone"></i></i> 916-241-3613</li>
               			<li><i class="fa fa-envelope"></i> davinci@houseofmedici.co</li>
@@ -24,18 +35,20 @@
           </div>
           <div class="col-md-6 stat">
           <ul class="list-inline stats">
-               <li>
-                 <span>275</span>
-                 Followings
-              </li>
-              <li>
-                 <span>354</span>
-                 Followers
-              </li>
-               <li>
-                 <span>186</span>
-                 Posts
-              </li>
+
+
+            <li>
+              <span><%= @user.is_following.size %></span>
+              Followings
+            </li>
+            <li>
+               <span><%= @user.followed_by.size %></span>
+               Followers
+            </li>
+             <li>
+               <span><%= @user.posts.size %></span>
+               Posts
+            </li>
           </ul>
             <div><!--/span6-->
             </div><!--/row-->

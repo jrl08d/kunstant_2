@@ -2,6 +2,7 @@
   <%= f.error_notification %>
 
 
+<<<<<<< HEAD
 	<div class="form-inputs">
   
     <%= f.label :comment %><br>
@@ -9,15 +10,30 @@
     <%= f.text_area :comment %>
   
     <%= f.hidden_field :post_id, value: @post.id %>
+=======
+<!--   <div class="form-inputs">
+    <%= f.association :post %>
+    <%= f.input :comment %>
+  </div> -->
+
+
+   
+    <%= f.input :comment %>
+
+>>>>>>> e6b4b944bbb5bf54cdf38caa98ab0be23b0536da
 
     <%= f.hidden_field :annotation %>
   
   </div>
 
   <div class="form-actions">
+<<<<<<< HEAD
   
     <%= f.submit @discussion.new_record? ? "Comment!" : "Change my Post" %>
   
+=======
+    <%= f.submit (@discussion.new_record? ? "Submit" : "Change my Post"), :class => 'btn btn-default' %>
+>>>>>>> e6b4b944bbb5bf54cdf38caa98ab0be23b0536da
   </div>
 
 <% end %>

@@ -7,9 +7,15 @@ Rails.application.routes.draw do
   resources :categories
   
   #resources :users 
-  resources :profiles
+  resources :profiles do 
+    member do 
+      get :following, :followers
+    end
+  end 
   
+
   devise_for :users
+
   resources :goals
 
   root to: "goals#index"
@@ -31,7 +37,9 @@ Rails.application.routes.draw do
 
   get "postindex", to: "project#postindex"
 
-  
+
+  resources :relationships, only: [:create, :destroy]
+
 
 
 

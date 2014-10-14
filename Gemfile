@@ -41,6 +41,8 @@ gem 'spring',        group: :development
 gem 'wirble', group: :development
 gem 'devise'
 gem 'fullcalendar-rails'
+gem 'rspec-rails'
+gem 'capybara'
 
 gem 'jquery-ui-rails'
 gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
@@ -55,5 +57,7 @@ gem "therubyracer"
 gem 'font-awesome-less'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'carrierwave'
-
+gem 'factory_girl'
+gem 'better_errors'
+gem 'binding_of_caller'
 gem 'bootstrap-sass'
