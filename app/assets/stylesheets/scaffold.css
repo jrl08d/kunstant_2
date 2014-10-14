@@ -11,6 +11,8 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+
+
 form {
 display: block;
 margin-top: 0em;
@@ -120,4 +122,33 @@ border: 1px solid #e3e3e3;
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
+}
+ 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+
+#grid {
+  width: inherit;
+}
+
+#tools_sketch {
+  height: inherit;
+}
+
+#grid[data-columns]::before {
+  content: '3 .column.size-1of3';
+}
+
+/* These are the classes that are going to be applied: */
+.column { float: left; }
+.size-1of3 {
+width: 31.333%;
+margin-right: 15px;
 }

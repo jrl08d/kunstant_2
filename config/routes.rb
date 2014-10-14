@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   resources :milestones
 
-  resources :projects
+  # resources :projects
 
   resources :categories
+  
   #resources :users 
   resources :profiles do 
     member do 
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   end 
   
 
-  devise_for :users 
+  devise_for :users
 
   resources :goals
 
@@ -34,9 +35,8 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  resources :categories
-  
-  resources :milestones
+  get "postindex", to: "project#postindex"
+
 
   resources :relationships, only: [:create, :destroy]
 

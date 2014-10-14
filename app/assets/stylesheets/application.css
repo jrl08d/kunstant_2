@@ -21,7 +21,6 @@
 
 
 .special,
-.row-fluid { height: inherit; }
 .col-md-3 { height: inherit; }
 .col-md-6 { height: inherit; }
 .img-polaroid {
@@ -35,10 +34,11 @@ body { padding-top: 100px; background-color:#ccc; height: 100%;
 table, td, th { vertical-align: middle; border: none; }
 th { border-bottom: 1px solid #DDD; }
 
-form { margin:100px; padding:50px; border:1px solid #ccc; background-color:#fff;}
-/*.unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }*/
+
+form {  padding:50px;  background-color:#fff;}
 
 .unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }
+
 .content {font-family: verdana, arial, helvetica, sans-serif;}
 #shortquote { color: #FFF;
 border-left: 0;}
@@ -52,3 +52,37 @@ border-left: 0;}
 	-webkit-transform: translateX(-50%);
 	-webkit-transform-origin: 50% 50%;
 }
+
+
+/* just some styling for the text in posts */
+#post_text {
+	padding: 4%;
+	font-size: 1.3em;
+	color: #858585;
+}
+
+
+/* annotation OVERLAY */
+
+.insideWrapper{ 
+    width:100%; height:100%; 
+    position:relative;}
+.coveredImage{ 
+    width:100%; height:100%; 
+    position:absolute; top:0px; left:0px;
+}
+.coveringCanvas {
+	width:100%; height:100%; 
+    position:absolute; top:0px; left:0px;
+    background-color: rgba(255,0,0,.1);
+}
+
+.testing {
+
+}
+
+
+.sketch_canvas {
+	
+}
+

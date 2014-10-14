@@ -1,50 +1,86 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<h3><%= @project.title %></h3>
+<h3><%= @project.title %></h3><br>
 
-<p>
-	[User Goes Here - Maybe avatar? idk] <%= @project.user %>
-</p>
 
-<p>
-  <i>Blank?:</i>
-  <%= @project.default %>
-</p>
 
-<div>
+
+<div><strong>Description:</strong>
   <%= @project.description %>
+  &nbsp;
+  <%= link_to content_tag(:i,nil, :class=>"fa fa-pencil fa-lg"), edit_project_path(@project) %> |
+ <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), @project, method: :delete, data: { confirm: 'Delete Project?' } %>
 </div>
 
 <br>
 
-<p>
+<!-- <p>
 	<strong>Image Upload:</strong><br>
 	<%= image_tag @project.avatar.url(:medium) %><br>
+</p> -->
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+
 
 <br>
 
-<h3> Posts </h3>
+<h3> Posts &nbsp; <a href = "#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" >
+  New
+</a> </h3>
 
-<hr />
 
-<!-- <h3>New Posts</h3> -->
-<%= render 'posts/form' %>
 
-<hr />
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">New Post</h4>
+      </div>
+      <div class="modal-body">
+        
+       
+       
+         <% @post = Post.new %>
+        <%= render 'posts/form' %>
+      
+    
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <!-- Show Posts generated here -->
+<div class="container"
+<div id="grid" data-columns>
+<div id="posts">
+	
+                    
 
 <% @project.posts.each do |u| %>
 
-		<p>
-			<%= link_to u.post_text, project_post_path(@project, u) %>
-		  <br>
-			<%= time_ago_in_words u.created_at %> ago
-		</p>
+	
+				<div class="column size-1of3 panel panel-default">
+					
+                <div class="panel-heading">
+                    <h4 class="panel-title"><%=  u.post_text%>&nbsp;|&nbsp;<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-md"), u, method: :delete, data: { confirm: 'Delete Post?' } %></h4>
+                </div>
+                <div class="panel-image"><%= link_to image_tag(u.post_img.url(:medium),style:"max-width: 100%;max-height: 100%;", class:"post"), project_post_path(@project, u) %></div>
 
-    <hr />
+			</div>
 
 <% end %>
+
+</div>
+</div>
+</div>
+</div>
+

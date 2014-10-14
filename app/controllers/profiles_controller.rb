@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   end
 
 	def show 
+		@users = User.all
 		@user = User.find(params[:id])
 		@projects = @user.projects
     @relationship = Relationship.new

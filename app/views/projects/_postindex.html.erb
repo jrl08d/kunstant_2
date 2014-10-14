@@ -1,0 +1,51 @@
+<h3> Posts </h3>
+
+<a href = "#" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" >
+  New
+</a>
+<hr>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">New Post</h4>
+      </div>
+      <div class="modal-body">
+        
+       
+       
+         <% @post = Post.new %>
+        <%= render 'posts/form' %>
+      
+    
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Show Posts generated here -->
+<% @project.posts.each do |u| %>
+
+		<p>
+				<%= link_to image_tag(u.post_img.url(:small)), project_post_path(@project, u) %>
+			<br>
+				<%= link_to u.post_text, project_post_path(@project, u) %>
+			<br>
+				<%= time_ago_in_words u.created_at %> ago
+			<br>
+				<%= link_to "X", u, method: :delete, data: { confirm: 'Delete Post?' } %>
+		</p>
+
+    <hr />
+
+<% end %>

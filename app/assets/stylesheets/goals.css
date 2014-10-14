@@ -85,4 +85,4 @@ tbody {
 .newCheck[type="checkbox"]:not(:checked) + label:after, .newCheck[type="checkbox"]:checked + label:after { content: '\f00c'; font-family: FontAwesome; padding-right: 5px; position: absolute; top: -8px; left: 0;  font-size: 20px; color: #555;}
 .newCheck[type="checkbox"]:not(:checked) + label:after { opacity: 0;}
 .newCheck[type="checkbox"]:checked + label:after { opacity: 1;}
-.newCheck[type="checkbox"]:checked + label span, .newCheck[type="checkbox"]:not(:checked) + label span { position:absolute; left:25px; }
+.newCheck[type="checkbox"]:checked + label span, .newCheck[type="checkbox"]:not(:checked) + label span { position:absolute; left:25px; }hecked) + label span { position:absolute; left:25px; }
