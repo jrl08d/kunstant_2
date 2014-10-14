@@ -1,0 +1,16 @@
+provide(:title, @title)
+<h1><%=@user.name %></h1>
+<% end %>
+
+<h3><%= @title %></h3>
+<% if @user.any? %>
+  <ul class ="users" >
+    <%= render @users %>
+  </ul>
+  <%= will_paginate %>
+<% end %>
+
+
+
+
+

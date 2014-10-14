@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
 
-=======
   resources :milestones
 
   resources :projects
 
   resources :categories
   #resources :users 
-  resources :profiles
+  resources :profiles do 
+    member do 
+      get :following, :followers
+    end
+  end 
   
->>>>>>> c03be562148ee8ecc4a1e31a29f300f2c9645f23
-  devise_for :users
+
+  devise_for :users 
+
   resources :goals
 
   root to: "goals#index"
@@ -34,6 +37,8 @@ Rails.application.routes.draw do
   resources :categories
   
   resources :milestones
+
+  resources :relationships, only: [:create, :destroy]
 
 
 

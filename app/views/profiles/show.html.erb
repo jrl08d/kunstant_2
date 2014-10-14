@@ -4,7 +4,12 @@
       <div class="well well-small clearfix">
         <div class="row">
           <div class="col-md-2">
-          	<%= image_tag current_user.avatar(:square),  :class => "img-polaroid" %>
+            <% if @user == current_user %>
+          	 <%= image_tag current_user.avatar(:square),  :class => "img-polaroid" %>
+            <% else %>
+              <%= image_tag @user.avatar(:square),  :class => "img-polaroid" %>
+            <% end %>
+
           </div>
           <div class="col-md-4 info">
 					<h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
@@ -16,18 +21,26 @@
           </div>
           <div class="col-md-6 stat">
           <ul class="list-inline stats">
-               <li>
-                 <span>275</span>
-                 Followings
-              </li>
-              <li>
-                 <span>354</span>
-                 Followers
-              </li>
-               <li>
-                 <span>186</span>
-                 Posts
-              </li>
+            <% unless current_user == @user %>
+              <% unless current_user.already_following?(@user) %>
+                <%= render "follow_form" if signed_in?  %>
+             <% else %>
+                <%= render "unfollow"  if signed_in? %>
+             <% end %>
+            <% end %>
+
+            <li>
+              <span><%= @user.is_following.size %></span>
+              Followings
+            </li>
+            <li>
+               <span><%= @user.followed_by.size %></span>
+               Followers
+            </li>
+             <li>
+               <span>186</span>
+               Posts
+            </li>
           </ul>
             <div><!--/span6-->
             </div><!--/row-->
