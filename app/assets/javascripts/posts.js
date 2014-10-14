@@ -42,7 +42,7 @@ var __slice = Array.prototype.slice;
         toolLinks: true,
         defaultTool: 'marker',
         defaultColor: '#000000',
-        defaultSize: 3
+        defaultSize: 1
       }, opts);
       this.painting = false;
       this.color = this.options.defaultColor;
