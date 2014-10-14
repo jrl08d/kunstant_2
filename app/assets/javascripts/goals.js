@@ -14,3 +14,9 @@ $(document).ready(function() {
 	return false;
 });  
 
+var image_array = [
+    "#fff585",
+    "#058454",
+    "#032564",
+    "/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg"
+];

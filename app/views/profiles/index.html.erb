@@ -1,2 +1,7 @@
-<br>
-<% current_user.email %>
+<% @users = User.all %>
+<% @users.each do |user| %>
+
+  <%= image_tag user.avatar(:square),  :class => "img-polaroid" %>
+
+  <%= link_to user.email, profile_path(user) %> <br/>
+<% end %>

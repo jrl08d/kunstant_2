@@ -29,6 +29,8 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  get "postindex", to: "project#postindex"
+
   
 
 
