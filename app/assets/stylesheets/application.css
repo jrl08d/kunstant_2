@@ -22,7 +22,6 @@
 
 
 .special,
-.row-fluid { height: inherit; }
 .col-md-3 { height: inherit; }
 .col-md-6 { height: inherit; }
 .img-polaroid {
@@ -34,14 +33,13 @@ body { padding-top: 100px; background-color:#ccc; height: 100%;
     width: 100%;
     position: absolute; }
 table, td, th { vertical-align: middle; border: none; }
-th { border-bottom: 1px solid #DDD; };
+th { border-bottom: 1px solid #DDD; }
+form {  padding:50px;  background-color:#fff;}
+.unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }
 
-form { margin:100px; padding:50px; border:1px solid #ccc; background-color:#fff;};
-/*.unique { background-image: url(/assets/Watercolors-Morning-Mist-Temple-Waterfalls-1440x2560.jpg); }*/
 .content {font-family: verdana, arial, helvetica, sans-serif;}
 #shortquote { color: #FFF;
 border-left: 0;}
-
 
 #bottom{
 	width: 50%;
@@ -51,6 +49,7 @@ border-left: 0;}
 	-webkit-transform: translateX(-50%);
 	-webkit-transform-origin: 50% 50%;
 }
+
 
 /* just some styling for the text in posts */
 #post_text {
@@ -83,3 +82,4 @@ border-left: 0;}
 .sketch_canvas {
 	
 }
+

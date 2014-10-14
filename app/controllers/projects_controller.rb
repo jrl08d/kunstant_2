@@ -4,15 +4,25 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    @posts = Post.all
     @projects = Project.all
     render :index, layout: "project"
+    project = Project.where.not(avatar_file_name: nil)
+  end
+
+  def postindex
+    @posts = Post.all
+    @projects = Project.all
+    render layout: "project"
     project = Project.where.not(avatar_file_name: nil)
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @projects = Project.all
     @post = Post.new
+    render :show, layout: "project"   
   end
 
   # GET /projects/new

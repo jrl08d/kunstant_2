@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
+    <%= f.input :title, :required => true %>
     <%= f.input :description %>
-    <%= f.input :default %>
+    <%= f.hidden_field :default %>
   </div>
 
 <!--   <div>
@@ -14,7 +14,7 @@
   <br>
 
   <div class="form-actions">
-    <%= f.submit @project.new_record? ? "Create a Project" : "Edit my Project" %>
+    <%= f.submit @project.new_record? ? "Create a Project" : "Edit my Project", :class => 'btn btn-default' %>
   </div>
   
 <% end %>

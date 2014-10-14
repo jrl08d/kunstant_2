@@ -24,7 +24,7 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/goals">Dashboard</a></li>
+        <li class="active"><a href="/">Dashboard</a></li>
         <li class="active"><a href="/projects">Projects</a></li>
         <li class="active"><%= link_to "My Page", profile_path(current_user.id) %>
 <% if user_signed_in? %><% end %>
@@ -46,20 +46,97 @@
 </nav>
 
  <div class="container special">
+    <% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
       <div class="row-fluid">
-        <div class="col-sm-3 col-md-3" id="projlist">
 
-          <%= yield %>
           
+
+         <div class="col-sm-3 col-md-3" id="projlist">
+          <h3>Projects Tray</h3>
+
+<br>
+
+
+<a href = "#" class="btn btn-primary btn-med" data-toggle="modal" data-target="#myModalproj" >
+  New Project
+</a>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalproj" tabindex="-1" role="dialog" aria-labelledby="windowTitleLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">New Project</h4>
+      </div>
+      <div class="modal-body">
+        
+       
+       
+         <% @project = Project.new %>
+        <%= render 'projects/form' %>
+      
+    
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br>
+<hr>
+     <div>
+
+    <% @projects.each do |project| %>
+         <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#<%= project.id%>">
+                            </span><%= project.title%></a></div>
+                                        <div id="<%= project.id%>" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <%= link_to 'Overview', project %>
+                                    </td>
+                                </tr>
+                              
+                                <tr>
+    
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+
+  
+    <% end %>
+
+  </div>
+</div>
+
          <div class="col-sm-9 col-md-9">
           <div class="well">
-                <h1>
-                    Accordion Menu With Icon</h1>
-                Admin Dashboard Accordion Menu
+    <%= yield %>
+  
             </div>
             </div>
 
-        </div>
+
+
+       
       </div>
     </div>
 
