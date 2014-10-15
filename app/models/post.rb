@@ -42,6 +42,4 @@ class Post < ActiveRecord::Base
       post.assign_order(@posts.index(post))
     end    
   end
-
-
 end

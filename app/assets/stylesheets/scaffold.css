@@ -176,8 +176,7 @@ margin-right: 15px;
 }
 
 #comment_delete {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 5px;
 }
 .commentdiv {
   background-color: #C5C5C5;
