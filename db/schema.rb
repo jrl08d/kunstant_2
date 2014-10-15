@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20141015004658) do
     t.string   "post_img_content_type"
     t.integer  "post_img_file_size"
     t.datetime "post_img_updated_at"
+    t.integer  "order"
   end
 
   add_index "posts", ["project_id"], name: "index_posts_on_project_id", using: :btree

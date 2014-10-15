@@ -63,7 +63,10 @@ border-left: 0;}
 	color: #858585;
 }
 
-
+#postcont {
+	width: inherit;
+	min-height: 200px;
+}
 /* annotation OVERLAY */
 
 /*.insideWrapper{ 

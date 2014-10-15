@@ -145,6 +145,19 @@ border: 1px solid #e3e3e3;
 
 #tools_sketch {
   height: inherit;
+  position: fixed;
+top: -131px;
+}
+
+#new_discussion {
+  background-color: inherit; 
+  padding: 4%; 
+}
+#comments_col {
+  width: 33%;
+}
+.well {
+  min-height: 550px;
 }
 
 #grid[data-columns]::before {
