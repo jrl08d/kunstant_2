@@ -14,6 +14,7 @@ body, p, ol, ul, td {
 form {
 display: block;
 margin-top: 0em;
+border-radius: 5px;
 }
 #goal_due_date {
   display: block;
@@ -89,6 +90,7 @@ border: 1px solid #e3e3e3;
 .panel { 
   margin-top: 10px;
   box-shadow: 0px 0px 15px rgba(0,0,0,0.52);
+
 }
 .sidebar {
   box-shadow: 0px 0px 4px rgba(0,0,0,0.15);

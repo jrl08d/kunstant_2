@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   end
 
   get "postindex", to: "project#postindex"
+  
 
 
   resources :relationships, only: [:create, :destroy]
