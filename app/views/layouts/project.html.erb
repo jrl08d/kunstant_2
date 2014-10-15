@@ -94,10 +94,8 @@
 
 <br>
      <div>
-
+        <div class="panel-group" id="accordion">
     <% @projects.each do |project| %>
-         <div class="panel-group" id="accordion">
-
                 <div class="panel panel-default sidebar">
 
                     <div class="panel-heading"><h3 class="panel-title"></h3>
@@ -106,7 +104,7 @@
                           </a>
                     </div>
 
-                    <div id="<%= project.id%>" class="panel-collapse collapse in">
+                    <div id="<%= project.id%>" class="panel-collapse collapse">
                         <div class="panel-body">
                             <table class="table">
                                 <tr>
@@ -121,9 +119,9 @@
                         </div>
                     </div>
                 </div>
-                </div>
+         
     <% end %>
-
+       </div>
   </div>
 </div>
 
