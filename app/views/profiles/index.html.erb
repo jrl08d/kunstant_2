@@ -1,10 +1,13 @@
 <div class="col-sm-12 col-md-12 well">
+
 <% @users = User.all %>
 <% @users.each do |user| %>
+<div class="column size-1of4 panel panel-default">
 
   <%= image_tag user.avatar(:square),  :class => "img-polaroid" %>
 
-  <%= link_to user.email, profile_path(user) %> <br/>
-
+  <%= link_to user.first_name, profile_path(user) %> <br/>
+</div>
 <% end %>
+
 </div>
