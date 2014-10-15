@@ -145,7 +145,11 @@ border: 1px solid #e3e3e3;
 
 #tools_sketch {
   height: inherit;
-  position: fixed;
+  position: relative;;
+top: -131px;
+}
+#invisibleaffix{
+  position: relative;
 top: -131px;
 }
 
