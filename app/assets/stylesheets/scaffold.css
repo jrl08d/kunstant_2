@@ -148,8 +148,8 @@ border: 1px solid #e3e3e3;
   position: relative;;
 top: -131px;
 }
-#invisibleaffix{
-  position: relative;
+.test{
+   position: fixed;
 top: -131px;
 }
 
@@ -175,8 +175,12 @@ width: 31.333%;
 margin-right: 15px;
 }
 
+#comment_delete {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 .commentdiv {
-  background-color: #EDEDED;
+  background-color: #C5C5C5;
   border-radius: 5%;
   padding: 4%;
   margin: 4%;

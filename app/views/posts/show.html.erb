@@ -54,17 +54,8 @@
 				<br>
 				<div>
 
-						<%= link_to 'Edit', edit_project_post_path(@post.project, @post), :class => "btn btn-default" %>
+						<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), edit_project_post_path(@post.project, @post), :class => "btn btn-default" %>
 
-					<% if @post.project.nil? %>
-
-						<%= link_to 'Back', posts_path, :class => "btn btn-default"  %>
-
-					<% else %>
-
-						<%= link_to 'Back', @post.project, :class => "btn btn-default" %>
-
-					<% end %>
 				</div>
 
 
@@ -81,7 +72,7 @@
 					<div class="btn-group btn-toggle"> 
 						<button class="btn btn-default" id="toggle_on_<%= u.id %>">ON</button>					
 						<button class="btn btn-default" id="toggle_off_<%= u.id %>">OFF</button>
-						<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), u, method: :delete, data: { confirm: 'Delete Discussion?' }, :class => "btn btn-default" %>	
+						<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), u, method: :delete, data: { confirm: 'Delete Discussion?' }, :class => "btn btn-default", :id=>"comment_delete" %>	
 					<br>
 					<br>				
 					</div>
