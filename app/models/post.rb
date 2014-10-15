@@ -28,12 +28,12 @@ class Post < ActiveRecord::Base
 
 
   def order_post
-    self.order = Post.where(project_id: self.project.id).count + 1
+    self.order = Post.where(project_id: self.project.id).count 
     self.save
   end
 
   def assign_order(index)
-    self.order = index 
+    self.order = index + 1
     self.save
   end
   def reorder_post

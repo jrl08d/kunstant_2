@@ -145,13 +145,12 @@ border: 1px solid #e3e3e3;
 
 #tools_sketch {
   height: inherit;
-  position: relative;;
-top: -131px;
+  display: inline-block;
+  vertical-align: middle;
+
+ 
 }
-.test{
-   position: fixed;
-top: -131px;
-}
+
 
 #new_discussion {
   background-color: inherit; 
@@ -162,6 +161,7 @@ top: -131px;
 }
 #wellspecial {
   min-height: 550px;
+  overflow: auto;
 }
 
 #grid[data-columns]::before {

@@ -1,6 +1,6 @@
 <!-- <p id="notice"><%= notice %></p> -->
- <div class="well" id="wellspecial">
-<div class="container special" id="postcont">
+ <div class="well block" id="wellspecial">
+<div class="special" id="postcont">
 
 
 	<div class="row-fluid">
@@ -23,7 +23,7 @@
 					$(function() {
 						$('#tools_sketch').sketch({defaultColor: "#ff0", 
 					});
-						$('canvas').attr('height', $(window).height().toString() + 'px'); 
+						$('canvas').attr('height', ($(window).height()/1.6).toString() + 'px'); 
 						$('canvas').attr('width', $('#canvas_container').width().toString() + 'px'); 
 						$('#mysketch').sketch();		
 						$('#tools_sketch').on('click', function(){
@@ -47,14 +47,14 @@
 				<!-- USER AVATAR GOES HERE -->
 
 				<div id="post_text">	
-					<strong><%= @post.post_text %></strong><br>
+					<strong><%= @post.post_text %></strong><br><br>
 					Post #<%= @post.order %><br>
   				Created: <%= time_ago_in_words @post.created_at %> ago
-				</div>
-				<br>
-				<div>
+				
+			
+				
 
-						<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), edit_project_post_path(@post.project, @post), :class => "btn btn-default" %>
+						<%= link_to content_tag(:i,nil, :class=>"fa fa-pencil fa-lg"), edit_project_post_path(@post.project, @post), :class => "btn btn-default" %>
 
 				</div>
 

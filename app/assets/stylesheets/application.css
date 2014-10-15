@@ -59,7 +59,7 @@ border-left: 0;}
 /* just some styling for the text in posts */
 #post_text {
 	padding: 4%;
-	font-size: 1.3em;
+	font-size: 0.9em;
 	color: #858585;
 }
 
@@ -82,3 +82,15 @@ border-left: 0;}
     background-color: rgba(255,0,0,.1);
 }
 */
+
+.block:before {
+  content: '';
+  display: inline-block;
+  height: 100%; 
+  vertical-align: middle;
+  margin-right: -0.25em; /* Adjusts for spacing */
+    
+  /* For visualization 
+  background: #808080; width: 5px;
+  */
+ }
