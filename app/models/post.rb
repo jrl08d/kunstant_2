@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base
   end
 
   def assign_order(index)
-    self.order = index + 1
+    self.order = index 
     self.save
   end
   def reorder_post
