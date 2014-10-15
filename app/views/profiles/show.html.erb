@@ -1,15 +1,9 @@
-<div class="well clearfix">
-        <b>About:</b>
-         <% if @user == current_user %>
-            <%= current_user.about %>
-            <% else %>
-           <%= @user.about %>
-            <% end %>
-        
-        
-    </div>
-<div>
-
-<%= render 'portfolioindex', collection: @projects %>
-
+<div class="clearfix">
+  <% if params[:view] == 'portfolio' %>
+    <%= render 'portfolioindex', collection: @projects %>
+  <% elsif params[:view] == 'current_projects' %>
+    <%= render 'projects_in_progress' %>
+  <% else %>
+    <%= render 'aboutme' %>
+  <% end %>
 </div>

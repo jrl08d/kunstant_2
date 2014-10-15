@@ -4,13 +4,9 @@ class ProfilesController < ApplicationController
   def index
 		@users = User.all
     @projects = current_user.projects
-    render :index, layout: "project"
+    render :index, layout: "application"
 	end
-
-  def portfolioindex
-    @projects = Project.where(done: true, user_id: @user)
-  end
-
+  
   def new 
     @user = User.find(params[:id])
   end

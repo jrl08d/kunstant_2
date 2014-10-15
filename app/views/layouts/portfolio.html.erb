@@ -117,10 +117,31 @@
 
       <div class="row-fluid">
 
+
+
           
 
          <div class="col-sm-3 col-md-3" id="projlist">
-          
+            <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                       <%= link_to 'About Me', profile_path(@user.id) %>
+                                    </td>
+                                </tr>
+                              <tr>
+                                    <td>
+                                       <%= link_to 'Portfolio', profile_path(@user.id, view: 'portfolio') %>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>
+                                       <%= link_to 'Projects in Progress', profile_path(@user.id, view: 'current_projects') %>
+                                    </td>
+                                </tr>
+    
+                            </table>
+                        </div>
 
 <br>
 

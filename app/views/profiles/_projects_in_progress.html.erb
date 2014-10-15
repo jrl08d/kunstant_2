@@ -1,7 +1,6 @@
-<h2><u>Portfolio<h2>
+<h2><u>Current Projects<h2>
 <% @projects.each do | project | %>
-   <% if project.done == true  %>
+   <% if project.done == false %>
       <%= link_to project.title, project_path(project) %>
-      <%= image_tag(project.posts.first.post_img.url) %>
     <%end %>
 <% end %>
