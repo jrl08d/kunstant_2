@@ -1,0 +1,6 @@
+<h2><u>Current Projects<h2>
+<% @projects.each do | project | %>
+   <% if project.done == false %>
+      <%= link_to project.title, project_path(project) %>
+    <%end %>
+<% end %>

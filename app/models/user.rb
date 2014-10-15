@@ -38,17 +38,17 @@ class User < ActiveRecord::Base
   end
 
   def is_following # show me the relationship where the user is the follower return their relatioship. Returns an array of all the relationship where they are the follower 
-    unless self.relationships.where(follower_id: self.id).nil?
-      return relationships.where(follower_id: self.id)
+    unless Relationship.where(follower_id: self.id).empty?
+      return Relationship.where(follower_id: self.id)
     end
-    0
+    []
   end
 
   def followed_by #show me the relationship where the user is being followed. Returns an array of all the relationships where the user is being followed.
-    unless self.relationships.where(followed_id: self.id).nil?
-      return relationships.where(followed_id: self.id)
+    unless Relationship.where(followed_id: self.id).empty?
+      return Relationship.where(followed_id: self.id)
     end
-    0
+    []
   end
     
 end

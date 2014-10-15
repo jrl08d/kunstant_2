@@ -5,7 +5,11 @@
 
 	<div class="row-fluid">
 		<!-- OUTSIDE WRAPPER -->
+<<<<<<< HEAD
+		<div class="col-sm-8 col-md-8" id="canvas_container">
+=======
 		<div class="col-sm-8 col-md-8 col-lg-8" id='canvas_container' >
+>>>>>>> 8fa2b0d455501f5db96230e98958746e3b701a1d
 
 			<!-- THIS IS THE LOOP THAT SHOWS THE ANNOTATIONS -->
 			<div class="affix" style="z-index: 100;" id="invisibleaffix">
@@ -32,6 +36,7 @@
 							$('#targetImage').attr('src', sk[0].toDataURL() );
 							$('#discussion_annotation').val($('#tools_sketch')[0].toDataURL())
 						});	    
+
 					});
 					$('#upload').click(function () {
 						$.post('/upload.', { data: $('#targetImage').get(0).toDataURL() }, 

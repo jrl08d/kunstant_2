@@ -1,11 +1,13 @@
 class ProfilesController < ApplicationController
-	def index
+  before_action :check_user
+	
+  def index
 		@users = User.all
+    @projects = current_user.projects
+    render :index, layout: "application"
 	end
-
-
-  def new
-    
+  
+  def new 
     @user = User.find(params[:id])
   end
 
@@ -15,7 +17,8 @@ class ProfilesController < ApplicationController
 		@projects = @user.projects
     @posts = current_user.posts
     @relationship = Relationship.new
-	end
+    render :show, layout: "portfolio"	
+  end
 
   def following 
     @title =  "Following"

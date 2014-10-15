@@ -47,10 +47,17 @@
 
 <div id="goals">
 <h2 id="week">
+<<<<<<< HEAD
   <%= link_to content_tag(:i,nil, :class=>"fa fa-arrow-left fa-md"), date: @date.prev_week ,:class => "btn btn-default" %>
   <%= @date.strftime("%B")%>
   <%= @date.strftime("%Y") %>
   <%= link_to content_tag(:i,nil, :class=>"fa fa-arrow-right fa-md"), date: @date.next_week,  :class => "btn btn-default" %>
+=======
+  <%= link_to content_tag(:i,nil, :class=>"fa fa-arrow-left fa-sm"), date: @date.prev_week %>
+  <%= @date.strftime("%B")%>
+  <%= @date.strftime("%Y") %>
+  <%= link_to content_tag(:i,nil, :class=>"fa fa-arrow-right fa-sm"), date: @date.next_week %>
+>>>>>>> dae45b874e59204a6b8ab520ad107534c859b834
 </h2>
   <%= calendar @date do |date| %>
     <%= date.day %>

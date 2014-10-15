@@ -1,4 +1,4 @@
-
+<div class="col-sm-12 col-md-12 well">
 <% @users = User.all %>
 <% @users.each do |user| %>
 
@@ -7,3 +7,4 @@
   <%= link_to user.email, profile_path(user) %> <br/>
 
 <% end %>
+</div>
