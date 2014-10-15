@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @discussion = Discussion.new
-  end
+   end
 
   # GET /posts/new
   def new
@@ -67,6 +67,9 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

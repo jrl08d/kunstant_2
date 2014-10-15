@@ -15,8 +15,8 @@
 
 			<!-- THIS IS THE CANVAS USING SKETCH.JS THING -->
 			<div class="affix">
-				
-				<canvas class="sketch_canvas" id="tools_sketch" style="background: url(<%= @post.post_img.url(:large)%>) no-repeat center"/>
+
+				<canvas class="sketch_canvas" id="tools_sketch" style="background: url(<%= @post.post_img.url(:m_600)%>) no-repeat center"/>
 
 					<script type="text/javascript">
 					$(function() {
@@ -50,18 +50,17 @@
 				</div>
 				<br>
 				<div>
-					<button class="btn btn-default">	
-						<%= link_to 'Edit', edit_project_post_path(@post.project, @post) %>
-					</button>
-					
+
+						<%= link_to 'Edit', edit_project_post_path(@post.project, @post), :class => "btn btn-default" %>
+
 					<% if @post.project.nil? %>
-					<button class="btn btn-default">
-						<%= link_to 'Back', posts_path %>
-					</button>
+
+						<%= link_to 'Back', posts_path, :class => "btn btn-default"  %>
+
 					<% else %>
-					<button class="btn btn-default">
-						<%= link_to 'Back', @post.project %>
-					</button>
+
+						<%= link_to 'Back', @post.project, :class => "btn btn-default" %>
+
 					<% end %>
 				</div>
 
@@ -71,19 +70,20 @@
 
 				<!-- Show Discussions generated here -->
 				<% @post.discussions.each do |u| %>
-				
+
 				<div class="commentdiv">
 					<p><%= u.comment %>&nbsp;</p>
 					<p><i><%= time_ago_in_words u.created_at %> ago</i></p>
 					
-
 					<div class="btn-group btn-toggle"> 
 						<button class="btn btn-default" id="toggle_on_<%= u.id %>">ON</button>					
 						<button class="btn btn-default" id="toggle_off_<%= u.id %>">OFF</button>
-						<button class="btn btn-default"><%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), u, method: :delete, data: { confirm: 'Delete Discussion?' } %></button>					
+						<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), u, method: :delete, data: { confirm: 'Delete Discussion?' }, :class => "btn btn-default" %>	
+					<br>
+					<br>				
 					</div>
 				</div>
-				
+
 				<!-- Add jquery toggle magic stuff -->
 
 				<script type="text/javascript">
@@ -102,9 +102,9 @@
 						);
 				});   
 				</script>
-				
+
 				<% end %>
 			</div>
 		</div>
-		
+
 	</div>

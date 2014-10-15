@@ -11,11 +11,6 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
-
-.commentdiv {
-  background-color: #C5C5C5;
-}
-
 form {
 display: block;
 margin-top: 0em;
@@ -162,3 +157,11 @@ border: 1px solid #e3e3e3;
 width: 31.333%;
 margin-right: 15px;
 }
+
+.commentdiv {
+  background-color: #EDEDED;
+  border-radius: 5%;
+  padding: 4%;
+  margin: 4%;
+}
+
