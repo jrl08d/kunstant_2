@@ -1,11 +1,11 @@
-<%= simple_form_for(@project, :html => { :multipart => true }) do |f| %>
+<%= simple_form_for @project do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
 
-    <%= f.input :title, :required => true %>
+    <%= f.input :title, :input_html => {:required => true}, :placeholder => 'Name me' %>
 
-    <%= f.input :description %>
+    <%= f.input :description, label: 'Aspiration', :placeholder => 'Share it with the world...' %>
 
     <%= f.hidden_field :default %>
 

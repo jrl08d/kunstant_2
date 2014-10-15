@@ -21,7 +21,7 @@
 
 					<script type="text/javascript">
 					$(function() {
-						$('#tools_sketch').sketch({defaultColor: "#ff0", 
+						$('#tools_sketch').sketch({defaultColor: "#ff0000", 
 					});
 						$('canvas').attr('height', ($(window).height()/1.6).toString() + 'px'); 
 						$('canvas').attr('width', $('#canvas_container').width().toString() + 'px'); 
@@ -47,7 +47,7 @@
 				<!-- USER AVATAR GOES HERE -->
 
 				<div id="post_text">	
-					<strong><%= @post.post_text %>&nbsp;&nbsp;</strong><%= link_to content_tag(:i,nil, :class=>"fa fa-pencil fa-lg"), edit_project_post_path(@post.project, @post), :class => "btn btn-default" %><br><br>
+					<strong><%= @post.post_text %>&nbsp;&nbsp;</strong><%= link_to content_tag(:i,nil, :class=>"fa fa-pencil-square-o fa-lg"), edit_project_post_path(@post.project, @post), :class => "btn btn-default" %><br><br>
 					Post #<%= @post.order %> <% if @previous_post  %> 
 					<%= link_to content_tag(:i,nil, :class=>"fa fa-arrow-left fa-md"), project_post_path(@post.project.id, @previous_post),:class => "btn btn-default" %>
                  <% end %>
@@ -57,11 +57,6 @@
 				 <% end %><br>
   				Created: <%= time_ago_in_words @post.created_at %> ago
 
-
-
-
-			
-				
 
 
 				</div>
@@ -80,12 +75,12 @@
 					<div class="btn-group btn-toggle"> 
 						<button class="btn btn-default" id="toggle_on_<%= u.id %>">ON</button>					
 						<button class="btn btn-default" id="toggle_off_<%= u.id %>">OFF</button>
-						</div>
+					</div>
 						<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), u, method: :delete, data: { confirm: 'Delete Discussion?' }, :class => "btn btn-default", :id=>"comment_delete" %>	
-					<br>
-					<br>				
-					
-				</div>
+						<br>
+						<br>				
+					</div>
+
 
 				<!-- Add jquery toggle magic stuff -->
 
