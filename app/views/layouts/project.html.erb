@@ -98,6 +98,8 @@
      <div>
 
     <% @projects.each do |project| %>
+        <% if project.done == false %>
+
          <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h4 class="panel-title">
@@ -123,8 +125,45 @@
 
   
     <% end %>
+     <% end %>
 
   </div>
+  <br>
+    <div>
+      <h5> <u>Archived Projects </h5>
+
+    <% @projects.each do |project| %>
+        <% if project.done == true %>
+
+         <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#<%= project.id%>">
+                            </span><%= project.title%></a></div>
+                                        <div id="<%= project.id%>" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <table class="table">
+                                <tr>
+                                    <td>
+                                        <%= link_to 'Overview', project %>
+                                    </td>
+                                </tr>
+                              
+                                <tr>
+    
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+
+  
+    <% end %>
+     <% end %>
+
+  </div>
+
 </div>
 
          <div class="col-sm-9 col-md-9">

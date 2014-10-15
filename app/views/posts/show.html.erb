@@ -7,7 +7,7 @@
 
 	<div class="row-fluid">
 		<!-- OUTSIDE WRAPPER -->
-		<div class="col-sm-8 col-md-8">
+		<div class="col-sm-8 col-md-8" id="canvas_container">
 
 			<div class="affix" style="z-index: 100;">
 			<% @post.discussions.each do |u| %>
@@ -24,6 +24,7 @@
 					    $('#tools_sketch').sketch({defaultColor: "#ff0", 
 					    });
 					    $('canvas').attr('height', $(window).height().toString() + 'px'); 
+				 	    $('canvas').attr('width', $('#canvas_container').width().toString() + 'px'); 
 					    $('#mysketch').sketch();		
 					    $('#tools_sketch').on('click', function(){
 								console.log($('#tools_sketch')[0].toDataURL());

@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_devise_permitted_parameters, if: :devise_controller?
 
 
-
  protected
 
   def configure_devise_permitted_parameters
@@ -23,4 +22,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_user
+    if current_user.nil?
+      redirect_to root_path, notice: 'You must be loged in to access that page'
+    end
+  end
 end

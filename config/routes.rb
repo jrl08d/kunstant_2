@@ -37,6 +37,14 @@ Rails.application.routes.draw do
 
   get "postindex", to: "project#postindex"
 
+  get "portfolioindex", to: "profile#portfolioindex"
+
+  # get "profileindex3", to: "project#profileindex"
+
+  # get "profileindex4", to: "project#profileindex"
+
+
+
 
   resources :relationships, only: [:create, :destroy]
 

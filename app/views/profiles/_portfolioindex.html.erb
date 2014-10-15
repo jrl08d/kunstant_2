@@ -1,0 +1,8 @@
+
+<h2><u>Portfolio<h2>
+<% @projects.each do | project | %>
+   <% if project.done == true  %>
+      <%= link_to project.title, project_path(project) %>
+    <%end %>
+<% end %>
+

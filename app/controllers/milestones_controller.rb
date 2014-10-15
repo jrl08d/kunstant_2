@@ -1,6 +1,6 @@
 class MilestonesController < ApplicationController
   before_action :set_milestone, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_user
   # GET /milestones
   # GET /milestones.json
   def index
