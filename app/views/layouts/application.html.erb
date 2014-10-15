@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+<%= favicon_link_tag 'favicon.ico' %>
 <html>
 <head>
-  <title>Kunstant2</title>
+  <title>Künstant</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
      <%= csrf_meta_tags %>
@@ -28,6 +29,7 @@
         <li class="active"><a href="/">Dashboard</a></li>
         <li class="active"><a href="/projects">Projects</a></li>
         <li class="active"><%= link_to "My Page", profile_path(current_user.id) %>
+        <li class="active"><a href="/profiles">Community</a></li>
 <% end %>
         
       </ul>
@@ -59,15 +61,6 @@
  </div>
 
 
-  <div class="container" >
- 	<%if user_signed_in? -%>
- 	<% else -%>
- 	<ul>
- 		<li><%= link_to 'Sign up', new_user_registration_path %></li>
- 		<li><%= link_to 'Sign in', new_user_session_path %></li>
- 	</ul>
- 	<% end -%>
- </div>
 
 
 </div>

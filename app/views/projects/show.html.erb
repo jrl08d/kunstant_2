@@ -1,4 +1,5 @@
 <!-- <p id="notice"><%= notice %></p> -->
+ <div class="well">
 
 <h3><%= @project.title %></h3><br>
 
@@ -11,15 +12,6 @@
   <%= link_to content_tag(:i,nil, :class=>"fa fa-pencil fa-lg"), edit_project_path(@project) %> |
  <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), @project, method: :delete, data: { confirm: 'Delete Project?' } %>
 </div>
-
-<br>
-
-<!-- <p>
-	<strong>Image Upload:</strong><br>
-	<%= image_tag @project.avatar.url(:medium) %><br>
-</p> -->
-
-
 
 <br>
 
@@ -41,13 +33,10 @@
       <div class="modal-body">
         
        
-       
          <% @post = Post.new %>
         <%= render 'posts/form' %>
       
     
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -56,29 +45,25 @@
   </div>
 </div>
 
-
-
 <!-- Show Posts generated here -->
 <div class="container"
 <div id="grid" data-columns>
 <div id="posts">
 	
-                    
-
 <% @project.posts.each do |u| %>
-
 	
 				<div class="column size-1of3 panel panel-default">
 					
                 <div class="panel-heading">
                     <h4 class="panel-title"><%=  u.post_text%>&nbsp;|&nbsp;<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-md"), u, method: :delete, data: { confirm: 'Delete Post?' } %></h4>
                 </div>
-                <div class="panel-image"><%= link_to image_tag(u.post_img.url(:medium),style:"max-width: 100%;max-height: 100%;", class:"post"), project_post_path(@project, u) %></div>
+                <div class="panel-image"><%= link_to image_tag(u.post_img.url(:m_600),style:"max-width: 100%;max-height: 100%;", class:"post"), project_post_path(@project, u) %></div>
 
 			</div>
 
 <% end %>
 
+</div>
 </div>
 </div>
 </div>

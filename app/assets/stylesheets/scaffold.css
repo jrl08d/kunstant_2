@@ -11,11 +11,10 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
-
-
 form {
 display: block;
 margin-top: 0em;
+border-radius: 5px;
 }
 #goal_due_date {
   display: block;
@@ -87,7 +86,15 @@ border: 1px solid #e3e3e3;
 border: 1px solid #e3e3e3;
 }
 
-.panel { margin-top: 10px;}
+
+.panel { 
+  margin-top: 10px;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.52);
+
+}
+.sidebar {
+  box-shadow: 0px 0px 4px rgba(0,0,0,0.15);
+}
 
 .col-md-6 { 
   background-color: #C5C5C5;
@@ -140,6 +147,23 @@ border: 1px solid #e3e3e3;
 
 #tools_sketch {
   height: inherit;
+  display: inline-block;
+  vertical-align: middle;
+
+ 
+}
+
+
+#new_discussion {
+  background-color: inherit; 
+  padding: 4%; 
+}
+#comments_col {
+  width: 33%;
+}
+#wellspecial {
+  min-height: 550px;
+  overflow: auto;
 }
 
 #grid[data-columns]::before {
@@ -152,3 +176,14 @@ border: 1px solid #e3e3e3;
 width: 31.333%;
 margin-right: 15px;
 }
+
+#comment_delete {
+  border-radius: 5px;
+}
+.commentdiv {
+  background-color: #C5C5C5;
+  border-radius: 5%;
+  padding: 4%;
+  margin: 4%;
+}
+

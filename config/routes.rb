@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   end
 
   get "postindex", to: "project#postindex"
+  
 
   get "portfolioindex", to: "profile#portfolioindex"
 

@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :check_user
+
+  
   # GET /posts
   # GET /posts.json
   def index
@@ -10,11 +12,19 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+        @projects = current_user.projects
+        @project = @post.project
     @discussion = Discussion.new
+      
+    @posts = current_user.posts
+    @next_post = Post.where(project_id: @post.project.id, order: (@post.order + 1)).take
+    @previous_post = Post.where(project_id: @post.project.id, order: (@post.order - 1)).take
+    render :show, layout: "project" 
   end
 
   # GET /posts/new
   def new
+
     @post = Post.new
   end
 
@@ -76,6 +86,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:post_text, :post_img, :project_id)
+      params.require(:post).permit(:post_text, :post_img, :project_id, :order)
     end
 end

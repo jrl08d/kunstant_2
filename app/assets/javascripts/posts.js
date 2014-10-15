@@ -103,7 +103,6 @@ var __slice = Array.prototype.slice;
     };
 
 
-
     Sketch.prototype.onEvent = function(e) {
       if (e.originalEvent && e.originalEvent.targetTouches) {
         e.pageX = e.originalEvent.targetTouches[0].pageX;

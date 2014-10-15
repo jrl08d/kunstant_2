@@ -47,10 +47,10 @@
 
 <div id="goals">
 <h2 id="week">
-  <%= link_to "<", date: @date.prev_week %>
+  <%= link_to content_tag(:i,nil, :class=>"fa fa-arrow-left fa-sm"), date: @date.prev_week %>
   <%= @date.strftime("%B")%>
   <%= @date.strftime("%Y") %>
-  <%= link_to ">", date: @date.next_week %>
+  <%= link_to content_tag(:i,nil, :class=>"fa fa-arrow-right fa-sm"), date: @date.next_week %>
 </h2>
   <%= calendar @date do |date| %>
     <%= date.day %>

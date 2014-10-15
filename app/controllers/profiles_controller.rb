@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
 		@users = User.all
 		@user = User.find(params[:id])
 		@projects = @user.projects
+    @posts = current_user.posts
     @relationship = Relationship.new
     render :show, layout: "portfolio"	
   end

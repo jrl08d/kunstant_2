@@ -53,11 +53,14 @@ gem 'jquery-cookie-rails'
 gem "cocoon"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "less-rails"
+
 gem "therubyracer"
 gem 'font-awesome-less'
+gem "font-awesome-rails"
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'carrierwave'
 gem 'factory_girl'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'bootstrap-sass'
+gem 'will_paginate', '~> 3.0'

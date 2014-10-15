@@ -1,4 +1,4 @@
-salvattore.js$(document).ready(
+$(document).ready(
 
 (function(root, factory) {
     if(typeof exports === 'object') {
