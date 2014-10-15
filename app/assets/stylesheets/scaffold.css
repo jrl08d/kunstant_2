@@ -139,7 +139,10 @@ border: 1px solid #e3e3e3;
   font-size: 12px;
   list-style: square;
 }
-
+#userspanel{
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 #grid {
   width: inherit;
