@@ -2,12 +2,16 @@
 
 <% @users = User.all %>
 <% @users.each do |user| %>
-<div class="column size-1of4 panel panel-default">
+<div class="column size-1of4 panel panel-default" id="userspanel">
+	 <div class="panel-heading">
+                    <h4 class="panel-title"><%=  user.first_name %> <%= user.last_name %></h4>
+                </div>
+                <div class="panel-image"><%= link_to image_tag(user.avatar(:square),style:"max-width: 100%;max-height: 100%;", class:"post"), profile_path(user) %></div>
 
-  <%= image_tag user.avatar(:square),  :class => "img-polaroid" %>
 
-  <%= link_to user.first_name, profile_path(user) %> <br/>
 </div>
 <% end %>
 
 </div>
+
+
