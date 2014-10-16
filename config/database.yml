@@ -8,7 +8,7 @@ default: &default
   adapter: postgresql
   #host: 192.241.183.121
 
-  username: jlyons
+  username: Widny
   #password: wyncode
   pool: 5
   timeout: 5000
