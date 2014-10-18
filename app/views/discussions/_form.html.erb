@@ -3,7 +3,7 @@
 
 	<div class="form-inputs">
       
-    <%= f.input :comment %>
+    <%= f.input :comment, label: 'Any thoughts?', placeholder: 'Tip: You can also draw' %>
 
     <%= f.hidden_field :annotation %>
   
@@ -11,10 +11,13 @@
 
   </div>
 
-  <div class="form-actions">
-    
-    <%= f.submit (@discussion.new_record? ? "Submit" : "Change my Post"), :class => 'btn btn-default' %>
 
-  </div>
+
+<div class="form-actions">
+	  <a href="#tools_sketch" data-tool="marker"><span class="btn btn-default fa fa-paint-brush fa-lg"></span></a>
+  <a href="#tools_sketch" data-tool="eraser"><span class="btn btn-default fa fa-eraser fa-lg"></span></a>
+		<%= f.submit (@discussion.new_record? ? "Submit" : "Change my Post"), class:'btn btn-default' %>
+</div>
+
 
 <% end %>

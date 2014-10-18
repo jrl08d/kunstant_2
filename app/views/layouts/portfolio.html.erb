@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kunstant2</title>
+  <title>Künstant</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
@@ -22,16 +21,19 @@
       <a class="navbar-brand" href="/">Künstant</a>
     </div>
 
-    <div class="collapse navbar-collapse">
+   <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
         <li class="active"><a href="/">Dashboard</a></li>
         <li class="active"><a href="/projects">Projects</a></li>
         <li class="active"><%= link_to "My Page", profile_path(current_user.id) %>
-<% if user_signed_in? %><% end %>
+        <li class="active"><a href="/profiles">Community</a></li>
+<% end %>
         
       </ul>
       <p class="navbar-text pull-right">
-        <% if user_signed_in? %>
+
+<% if user_signed_in? %>
 
 
   Logged in as <strong><%= current_user.email %></strong>
@@ -78,10 +80,7 @@
                     <li><i class="fa fa-envelope"></i> davinci@houseofmedici.co</li>
                     <li><i class="fa fa-globe"></i> http://www.leonardoda-vinci.org</li>
                 </ul>
-          </div>
-          <div class="col-md-6 stat">
-          <ul class="list-inline stats">
-            <% unless current_user == @user %>
+                 <% unless current_user == @user %>
 
               <% if current_user.already_following?(@user) %>
               
@@ -94,6 +93,10 @@
               <% end %>
             
             <% end %>
+          </div>
+          <div class="col-md-6 stat">
+          <ul class="list-inline stats">
+           
 
             <li>
               <span><%= @user.is_following.size %></span>
@@ -104,7 +107,7 @@
                Followers
             </li>
              <li>
-               <span>186</span>
+               <span><%= @user.posts.size %></span>
                Posts
             </li>
           </ul>
@@ -143,13 +146,6 @@
                             </table>
                         </div>
 
-<br>
-
-
-
-
-<br>
-<hr>
 
 </div>
 

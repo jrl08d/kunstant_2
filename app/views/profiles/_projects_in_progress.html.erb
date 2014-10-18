@@ -1,6 +1,12 @@
-<h2><u>Current Projects<h2>
+<h2><u>Portfolio<h2>
 <% @projects.each do | project | %>
-   <% if project.done == false %>
-      <%= link_to project.title, project_path(project) %>
+<% if project.done == false  %>
+<div class="column size-1of3 panel panel-default" id="userspanel">
+   
+   <div class="panel-heading">
+      <h4 class="panel-title"><%= project.title %></h4>
+  </div>
+      <div class="panel-image"><%= link_to image_tag(project.posts.first.post_img.url( :s_150)), project_path(project) %></div>
+  </div>
     <%end %>
 <% end %>

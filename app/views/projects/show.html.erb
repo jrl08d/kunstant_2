@@ -9,8 +9,8 @@
 <div><strong>Description:</strong>
   <%= @project.description %>
   &nbsp;
-  <%= link_to content_tag(:i,nil, :class=>"fa fa-pencil fa-lg"), edit_project_path(@project) %> |
- <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), @project, method: :delete, data: { confirm: 'Delete Project?' } %>
+  <%= link_to content_tag(:i,nil, :class=>"fa fa-pencil-square-o fa-lg"), edit_project_path(@project), :class => "btn btn-default"  %>
+ <%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-lg"), @project, method: :delete, data: { confirm: 'Delete Project?' }, :class=>"btn btn-default" %>
 </div>
 
 <br>
@@ -55,9 +55,20 @@
 				<div class="column size-1of3 panel panel-default">
 					
                 <div class="panel-heading">
-                    <h4 class="panel-title"><%=  u.post_text%>&nbsp;|&nbsp;<%= link_to content_tag(:i,nil, :class=>"fa fa-trash-o fa-md"), u, method: :delete, data: { confirm: 'Delete Post?' } %></h4>
+                    <h4 class="panel-title">
+
+                      <%= u.post_text%>&nbsp;&nbsp;
+
+                    </h4>
+
                 </div>
-                <div class="panel-image"><%= link_to image_tag(u.post_img.url(:m_600),style:"max-width: 100%;max-height: 100%;", class:"post"), project_post_path(@project, u) %></div>
+                <div class="panel-image"><%= link_to image_tag(u.post_img.url(:m_600),style:"max-width: 100%;max-height: 100%;", class:"post"), project_post_path(@project, u) %>
+                </div>
+                <div class="panel-footer">
+                      <div class="fa fa-comment fa-md">&nbsp;&nbsp;<%= u.discussions.size %></div>&nbsp;&nbsp;
+                      
+                      <%= link_to content_tag(:i,nil, :class=>"fa fa-remove fa-md pull-right"), u, method: :delete, data: { confirm: 'Delete Post?' } %>
+                </div>
 
 			</div>
 

@@ -92,6 +92,17 @@ border-left: 0;}
 	 background-color: rgba(197, 197, 197, 0);
 	
 }
+.panel-image {
+	-webkit-box-align:center;
+-webkit-box-pack:center;
+display:-webkit-box;
+
+}
+
+
+	.size-1of4 {
+width: 23% !important;
+}
 
 #login_form {
 	background-color: rgba(255, 255, 255, 0.5);
