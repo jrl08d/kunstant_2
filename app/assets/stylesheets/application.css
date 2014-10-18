@@ -46,7 +46,11 @@ form.edit_relationship, form.new_relationship {  padding:1px;  background-color:
 .uniquelogin { background-image: url(/assets/Claude_Monet_010.jpg)}
 .content {font-family: verdana, arial, helvetica, sans-serif;}
 #shortquote { color: #FFF;
-border-left: 0;}
+border-left: 0;
+background: rgba(3, 3, 3, 0.35);
+border-radius: 5px;
+
+}
 
 
 #bottom{

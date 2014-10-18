@@ -1,12 +1,11 @@
 GIT
-  remote: git://github.com/thoughtbot/paperclip.git
-  revision: 3ec2599d13c1c4d6ab7c5bd291b8ff31e625915e
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: 84378b307cccff3b6e1d3040c5f4f32985f1aba7
+  branch: master
   specs:
-    paperclip (4.2.0)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
+    simple_form (3.1.0.rc2)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
 
 GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
@@ -19,13 +18,14 @@ GIT
       railties (>= 3.1)
 
 GIT
-  remote: git://github.com/plataformatec/simple_form.git
-  revision: 84378b307cccff3b6e1d3040c5f4f32985f1aba7
-  branch: master
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 3ec2599d13c1c4d6ab7c5bd291b8ff31e625915e
   specs:
-    simple_form (3.1.0.rc2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
+    paperclip (4.2.0)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
 
 GEM
   remote: https://rubygems.org/

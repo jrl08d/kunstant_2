@@ -58,7 +58,10 @@ pre {
 
 a { color: #000; }
 a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a:hover { color: #FFF; background-color:#000; }
+a.btn {
+  color: #FFF;
+}
 
 div.field, div.actions {
   margin-bottom: 10px;
@@ -165,7 +168,7 @@ border: 1px solid #e3e3e3;
   width: 33%;
 }
 #wellspecial {
-  min-height: 550px;
+  min-height: 620px;
   overflow: auto;
 }
 
